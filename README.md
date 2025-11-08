@@ -1,4 +1,4 @@
-# 🎯 Framework Agente Canivete Cirúrgico v0.1 
+# 🎯 ACC v0.1 
 
       ⚡ intentional inference layer
 
@@ -222,10 +222,12 @@ agente-canivete-cirurgico/
 │ └── extracao-info-grafo.md  
 │  
 ├── tools/  
-│ ├── semantic-density-calculator.py # Multi-model benchmark  
-│ ├── token-counter.py  
-│ ├── baseshot-validator.sh  
-│ └── metrics-evaluator.py  
+│ ├── semantic-density-calculator.py 
+│ ├── alignment-visualizer.py  
+│ ├── next-token-prediction.py 
+│ ├── cli-test.py  
+│ ├── api-endpoint.py 
+│ └── requirements.txt 
 │  
 └── research/  
 ├── latent-space-activation.md  
