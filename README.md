@@ -292,7 +292,7 @@ Este projeto está licenciado sob a Licença MIT - veja [LICENSE](LICENSE) para 
 ## 📞 Contato
 
 - **GitHub**: https://github.com/aleeepassarelli
-- **Email**: al.passarelli@@gmail.com
+- **Email**: al.passarelli@gmail.com
 - **Twitter**: [https://x.com/alpassarelli
 
 ---
