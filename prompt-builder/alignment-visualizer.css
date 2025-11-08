@@ -1,0 +1,211 @@
+/* =====================================================
+   VISUALIZADOR DE ALINHAMENTO v1.1.0 (CSS)
+   ===================================================== */
+
+/* --- Reset Básico & Padrões --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: #444;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 8px;
+    margin-top: 24px;
+}
+
+/* --- Seção de Input --- */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.input-section label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-section input[type="text"],
+.input-section textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+    font-family: inherit;
+}
+
+.input-section textarea {
+    resize: vertical;
+}
+
+/* --- Container do Visualizador (Conteúdo Dinâmico) --- */
+#alignment-visualizer-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px dashed #e0e0e0;
+}
+
+/* Estados (Loading, Info, Erro) */
+.loading, .info, .error {
+    text-align: center;
+    font-size: 1rem;
+    padding: 20px;
+    border-radius: 8px;
+}
+.info {
+    color: #555;
+    background-color: #f8f9fa;
+}
+.loading {
+    color: #2196f3;
+}
+.error {
+    color: #d93025;
+    background-color: #fbeae9;
+    font-weight: 600;
+}
+
+/* 1. Resumo das Métricas */
+.metrics-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.metric-box {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}
+
+.metric-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.metric-value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #2196f3;
+}
+
+/* 2. Lista de Keywords */
+.keyword-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.keyword-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.keyword-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.keyword-word {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.keyword-alignment-score {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Barra de Progresso */
+.keyword-bar-container {
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 4px;
+    height: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.keyword-bar-fill {
+    height: 100%;
+    background-color: #2196f3;
+    transition: width 0.5s ease-in-out;
+    border-radius: 4px;
+}
+
+.keyword-meta {
+    font-size: 0.85rem;
+    color: #777;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* 3. Insights e Recomendações */
+.insight-box {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.insight-label {
+    font-weight: 600;
+    color: #333;
+}
+.insight-value {
+    color: #555;
+}
+
+.recommendations {
+    margin-top: 16px;
+}
+
+.rec-item {
+    background: #fff3e0;
+    border-left: 4px solid #ff9800;
+    padding: 12px 16px;
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: #e65100;
+}
