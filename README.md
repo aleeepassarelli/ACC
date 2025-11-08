@@ -5,15 +5,22 @@
 ---
 
  # 🔪 Framework Agente Canivete Cirúrgico
- 
+ ---
+
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) [![Validation Score](https://img.shields.io/badge/validation-87%25-brightgreen.svg)](docs/scientific-validation.md) [![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](https://zenodo.org) 
+  
+  ---
+  
   **Minimalismo cirúrgico para engenharia de prompts: cada palavra com propósito, cada métrica com evidência.** 
 
   Framework cientificamente validado para criação de agentes LLM ultra-eficientes usando **Semantic Density**, **Baseshot Learning** e **Latent Feature Steering**. 
  
   Desenvolvido através de colaboração humano-IA multi-agente. 
-  [🚀 Quick Start](#-quick-start) | [📖 Documentação](#-documentação) | [🧪 Validação Científica](docs/scientific-validation.md) | [💡 Exemplos](#-exemplos) 
 
+  ---
+  [🚀 Quick Start](#-quick-start) | [📖 Documentação](#-documentação) | [🧪 Validação Científica](docs/scientific-validation.md) | [💡 Exemplos](#-exemplos) 
+  
+---
 https://github.com/aleeepassarelli
 Autor: Aledev
 ---
