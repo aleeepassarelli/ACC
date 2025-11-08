@@ -1,4 +1,4 @@
-````markdown
+markdown
 # ⚠️ Aviso de Execução: Frontend do Prompt Builder
 
 Este diretório (`/prompt-builder`) contém **apenas** o código do frontend (HTML/CSS/JS) para as aplicações de UI do Agente Canivete Cirúrgico.
