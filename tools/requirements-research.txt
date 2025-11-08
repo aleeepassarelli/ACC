@@ -1,0 +1,14 @@
+# requirements-research.txt
+# Dependências "Opcionais" para PESQUISA e análise de resultados.
+# Instale com: pip install -r requirements-research.txt
+
+# Core (para a pesquisa)
+-r requirements.txt
+
+# Análise de Dados
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Benchmarking de Modelos (Opcional)
+transformers>=4.30.0
