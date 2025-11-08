@@ -1,13 +1,122 @@
 /* =====================================================
-   PATCH v1.1.1 - ESTILOS DO FORMULÁRIO INTERATIVO
+   BUILDER CSS v1.1.0 (Estilos para o Formulário)
    ===================================================== */
 
+/* --- Globals --- */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.app-header {
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+
+.app-header h1 {
+    margin: 0;
+    color: #222;
+}
+
+.version-badge {
+    font-size: 0.8rem;
+    background: #2196f3;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.builder-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- Seções do Formulário --- */
+.form-section {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+}
+
+.form-section h2 {
+    font-size: 1.4rem;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.layer-badge {
+    background: #333;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-right: 12px;
+}
+
+/* --- Elementos do Formulário --- */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* --- Estilos do Patch Interativo v1.1.1 --- */
+
+/* Protocolo e Baseshot */
 .protocol-item, .baseshot-example {
     position: relative;
     border: 1px dashed #ccc;
     padding: 16px;
     border-radius: 8px;
     margin-top: 16px;
+    background: #fafafa;
+}
+
+.baseshot-section {
+    margin-top: 20px;
 }
 
 .baseshot-header {
@@ -40,22 +149,65 @@
     font-weight: bold;
     line-height: 24px;
     text-align: center;
+    transition: background 0.2s;
 }
 .remove-item-btn:hover {
     background: #d32f2f;
 }
 
-/* Estiliza o botão de validar SD */
+/* Validação de SD (Camada 1) */
 #validate-sd-btn {
     background-color: #e0e0e0;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
+
 #sd-display-container {
     float: right;
     font-size: 0.9rem;
     padding: 8px 12px;
     background: #f8f9fa;
     border-radius: 6px;
+    border: 1px solid #e0e0e0;
 }
+
 #sd-display {
     font-family: 'Monaco', 'Menlo', monospace;
+    font-weight: 700;
+}
+
+/* Botões de Ação (reutiliza .btn de style.css se já carregado) */
+.form-actions {
+    text-align: center;
+    margin-top: 24px;
+}
+
+/* Se a classe .btn não for global, adicione este CSS base de 'style.css' */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: #2196f3;
+    color: white;
+}
+.btn-primary:hover {
+    background: #1976d2;
+}
+
+.btn-tertiary {
+    background: #f0f0f0;
+    color: #333;
+}
+.btn-tertiary:hover {
+    background: #e0e0e0;
 }
