@@ -104,7 +104,8 @@ response = llm.chat(template + "\n\n" + user_query)
 
 
 --- 
-## 🧪 Ferramentas de Validação ### 1. Semantic Density Calculator`
+## 🧪 Ferramentas de Validação 
+### 1. Semantic Density Calculator
 
 python tools/semantic-density-calculator.py "Nome Agente" "domínio alvo"
 
