@@ -1,0 +1,316 @@
+/* =====================================================
+   PROMPT PREVIEW & EXPORT STYLES
+   ===================================================== */
+
+.prompt-preview-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin: 24px 0;
+    max-width: 900px;
+}
+
+/* Header */
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.preview-header h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.preview-metrics {
+    display: flex;
+    gap: 16px;
+}
+
+.metric {
+    padding: 6px 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #666;
+}
+
+/* Warnings */
+.preview-warnings {
+    background: #fff3e0;
+    border-left: 4px solid #ff9800;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+}
+
+.warning-item {
+    font-size: 13px;
+    color: #e65100;
+    margin-bottom: 4px;
+}
+
+.warning-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Tabs */
+.preview-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    color: #333;
+    background: #f8f9fa;
+}
+
+.tab-btn.active {
+    color: #2196f3;
+    border-bottom-color: #2196f3;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Preview Visual */
+.preview-visual {
+    background: #f8f9fa;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    max-height: 600px;
+    overflow-y: auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+.preview-visual h1 {
+    font-size: 28px;
+    color: #333;
+    margin: 0 0 8px 0;
+    border-bottom: 3px solid #2196f3;
+    padding-bottom: 12px;
+}
+
+.preview-visual h2 {
+    font-size: 20px;
+    color: #444;
+    margin: 24px 0 12px 0;
+}
+
+.preview-visual h3 {
+    font-size: 16px;
+    color: #555;
+    margin: 16px 0 8px 0;
+}
+
+.preview-visual p {
+    color: #666;
+    margin: 12px 0;
+}
+
+.preview-visual ul {
+    padding-left: 24px;
+    color: #666;
+}
+
+.preview-visual li {
+    margin-bottom: 8px;
+}
+
+.preview-visual hr {
+    border: none;
+    border-top: 2px dashed #e0e0e0;
+    margin: 20px 0;
+}
+
+.preview-visual em {
+    color: #999;
+    font-style: italic;
+}
+
+/* Preview Markdown */
+.preview-markdown {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    max-height: 600px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Actions */
+.preview-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: #2196f3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1976d2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.btn-secondary {
+    background: #4caf50;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.btn-tertiary {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.btn-tertiary:hover {
+    background: #e0e0e0;
+}
+
+/* Feedback Toast */
+.feedback {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: slideInRight 0.3s;
+}
+
+.feedback-success {
+    background: #4caf50;
+    color: white;
+}
+
+.feedback.fade-out {
+    animation: fadeOut 0.3s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Scrollbar customizado */
+.preview-visual::-webkit-scrollbar,
+.preview-markdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+.preview-visual::-webkit-scrollbar-track,
+.preview-markdown::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.preview-visual::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.preview-markdown::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .preview-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .preview-metrics {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
