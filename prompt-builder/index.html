@@ -7,13 +7,139 @@
       name="description"
       content="Framework de Prompt Engineering - Agente Canivete Cirúrgico"
     />
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link rel="stylesheet" href="builder.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Canivete Cirúrgico - Construtor de Agentes</title>
   </head>
   <body>
     <noscript>Você precisa habilitar o JavaScript para rodar este app.</noscript>
-    
-    <div id="root"></div>
+
+    <div id="root">
+      <header class="app-header">
+        <h1>
+          🔪 Construtor de Agentes
+          <span class="version-badge">v1.1.0</span>
+        </h1>
+        <p>
+          Crie e valide templates do
+          <strong>Agente Canivete Cirúrgico</strong>.
+        </p>
+      </header>
+
+      <main class="builder-container">
+        <section class="form-section" id="camada-1">
+          <h2>
+            <span class="layer-badge">1</span> Identidade (Quem?)
+            <span class="metric-display" id="sd-display-container">
+              SD Score: <strong id="sd-display">N/A</strong>
+            </span>
+          </h2>
+          <div class="form-group">
+            <label for="agent-name-input">Nome do Agente (Identidade)</label>
+            <input
+              type="text"
+              id="agent-name-input"
+              placeholder="Ex: Hacker Semântico"
+            />
+          </div>
+          <div class="form-group">
+            <label for="domain-input">Domínio</label>
+            <input
+              type="text"
+              id="domain-input"
+              placeholder="Ex: Análise de sistemas e auditoria de APIs"
+            />
+          </div>
+          <button id="validate-sd-btn" class="btn btn-tertiary">
+            Validar Densidade Semântica (SD)
+          </button>
+        </section>
+
+        <section class="form-section" id="camada-2">
+          <h2><span class="layer-badge">2</span> Missão (O quê?)</h2>
+          <div class="form-group">
+            <label for="core-principle-input">Missão (1 Frase)</label>
+            <textarea
+              id="core-principle-input"
+              rows="2"
+              placeholder="Ex: Desmontar logicamente sistemas para identificar vulnerabilidades..."
+            ></textarea>
+          </div>
+        </section>
+
+        <section class="form-section" id="camada-3">
+          <h2><span class="layer-badge">3</span> Protocolo (Como?)</h2>
+          <div id="protocol-items-container">
+            <div class="form-group protocol-item">
+              <input
+                type="text"
+                class="protocol-item-input"
+                placeholder="Ex: 1. Ignore o marketing (ruído); foque na arquitetura (sinal)."
+              />
+            </div>
+            <div class="form-group protocol-item">
+              <input
+                type="text"
+                class="protocol-item-input"
+                placeholder="Ex: 2. Responda em markdown cirúrgico."
+              />
+            </div>
+          </div>
+          <button id="add-protocol-item-btn" class="btn btn-tertiary">
+            + Adicionar Item ao Protocolo
+          </button>
+        </section>
+
+        <section class="form-section" id="camada-4">
+          <h2><span class="layer-badge">4</span> Baseshot (Exemplos)</h2>
+
+          <div class="baseshot-section" id="anti-pattern-container">
+            <h3>❌ Erro Comum (O Anti-Padrão)</h3>
+            <p>
+              Descreva o *motivo* do erro (o que um LLM genérico faria errado).
+            </p>
+            <div class="form-group">
+              <label for="anti-pattern-input"
+                >Razão do Erro (Ex: Vago, Foco no Marketing)</label
+              >
+              <input type="text" id="anti-pattern-input" />
+            </div>
+            <div class="form-group">
+              <label for="anti-pattern-output-input"
+                >Exemplo da Saída Ruim (Opcional)</label
+              >
+              <textarea
+                id="anti-pattern-output-input"
+                rows="2"
+                placeholder="Ex: Sua API parece boa."
+              ></textarea>
+            </div>
+          </div>
+
+          <div classs="baseshot-section" id="baseshot-examples-container">
+            <h3>✅ Casos Ideais e ⚠️ Edge Cases</h3>
+            </div>
+          <button id="add-baseshot-example-btn" class="btn btn-tertiary">
+            + Adicionar Exemplo (✅ ou ⚠️)
+          </button>
+        </section>
+
+        <section class="form-actions">
+          <button id="generate-preview-btn" class="btn btn-primary">
+            Gerar Template v1.1.0
+          </button>
+        </section>
+
+        <div id="prompt-preview-container">
+          </div>
+      </main>
+    </div>
 
     <script src="builder.js"></script>
   </body>
