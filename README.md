@@ -130,15 +130,18 @@ bash tools/baseshot-validator.sh templates/seu-template.md
 
 ## 📚 Templates Disponíveis
 
-Template,Domínio,SD Score,Casos de Uso
-Hacker Semântico,"Análise de sistemas, ofertas tech e auditoria de APIs.",0.82,"Auditoria de APIs, ""red teaming"" lógico."
-CommitAssistant Proposital,Análise de git diffs (Conventional Commits).,0.88,"Gerar git commit semânticos, padronizar changelogs."
-TestGenerator Automático,Geração de testes unitários pytest.,0.85,"Criar testes de unidade, validar edge cases, TDD."
-SecurityScanner Contínuo,Análise estática de vulnerabilidades (OWASP).,0.89,Detecção de SQLi/XSS/Secrets em tempo real.
-DependencyMapper Visualizador,Análise de imports e arquitetura de módulos.,0.87,"Gerar grafos (DOT) de arquitetura, refatoração."
-DeploymentHelper Guiado,"Geração de scripts de CI/CD (Dockerfiles, Shell).",0.86,"Criar Dockerfile seguro, scripts deploy.sh."
-ConfigManager Automatizado,"Geração e ""merge"" seguro de arquivos .env.",0.84,"Gerar .env a partir de .env.example, manter secrets."
-StyleEnforcer Consistente,"Reformatação automática de código (PEP 8, Prettier).",0.82,"Formatar código (linter/formatter), padronizar estilo."
+Abaixo está uma seleção de Agentes "canivete" pré-validados, prontos para uso. Cada um é otimizado para uma tarefa de alta densidade semântica.
+
+| Template | Domínio | SD Score | Casos de Uso |
+|:---|:---|:---:|:---|
+| **`Hacker Semântico`** | Análise de sistemas, ofertas tech e auditoria de APIs. | 0.82 | Auditoria de APIs, "red teaming" lógico. |
+| **`CommitAssistant Proposital`** | Análise de `git diffs` (Conventional Commits). | 0.88 | Gerar `git commit` semânticos, padronizar changelogs. |
+| **`TestGenerator Automático`** | Geração de testes unitários `pytest`. | 0.85 | Criar testes de unidade, validar edge cases, TDD. |
+| **`SecurityScanner Contínuo`** | Análise estática de vulnerabilidades (OWASP). | 0.89 | Detecção de SQLi/XSS/Secrets em tempo real. |
+| **`DependencyMapper Visualizador`**| Análise de `imports` e arquitetura de módulos. | 0.87 | Gerar grafos (DOT) de arquitetura, refatoração. |
+| **`DeploymentHelper Guiado`** | Geração de scripts de CI/CD (Dockerfiles, Shell). | 0.86 | Criar `Dockerfile` seguro, scripts `deploy.sh`. |
+| **`ConfigManager Automatizado`** | Geração e "merge" seguro de arquivos `.env`. | 0.84 | Gerar `.env` a partir de `.env.example`, manter secrets. |
+| **`StyleEnforcer Consistente`** | Reformatação automática de código (PEP 8, Prettier). | 0.82 | Formatar código (linter/formatter), padronizar estilo. |
 
 [→ Ver todos os templates](templates/)
 
