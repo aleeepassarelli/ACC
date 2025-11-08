@@ -17,7 +17,7 @@
   Framework cientificamente validado para criação de agentes LLM ultra-eficientes usando **Semantic Density**, **Baseshot Learning** e **Latent Feature Steering**. 
  
   ---
-  [🚀 Quick Start](#-quick-start) | [📖 Documentação](#-documentação) | [🧪 Validação Científica](docs/scientific-validation.md) | [💡 Exemplos](#-exemplos) 
+  [🚀 Quick Start](https://github.com/aleeepassarelli/ACC/tree/main/tools) | [📖 Documentação](https://github.com/aleeepassarelli/ACC/tree/main/docs) | [🧪 Validação Científica](docs/scientific-validation.md) | [💡 Exemplos](https://github.com/aleeepassarelli/ACC/tree/main/examples) 
   
 ---
 https://github.com/aleeepassarelli
