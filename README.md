@@ -192,6 +192,115 @@ OUTPUT:
 🧠 ACC_TRACK:
   session_id: "{{timestamp}}-ACC"
   model: "gpt-5"
+   
+---
+## 🛠️ Estrutura do Repositório
+
+agente-canivete-cirurgico/  
+├── README.md # Este arquivo  
+├── LICENSE # MIT  
+├── CONTRIBUTING.md # Guia de contribuição  
+├── CHANGELOG.md # Histórico de versões  
+├── requirements.txt # Dependências Python  
+│  
+├── docs/  
+│ ├── philosophy.md # Fundamentação científica  
+│ ├── cognitive-principles.md # Latent space activation  
+│ ├── best-practices.md # SD como árbitro  
+│ └── scientific-validation.md # Papers e citações  
+│  
+├── templates/  
+│ ├── agentes-desenvolvimennto.md 
+│ ├── agentes-cirurgicos.md  
+│ ├── acoes-desenvolvimento.md  
+│ ├── multi-agentes.md  
+│ └── exemplo-agentes.md  
+│  
+├── examples/  
+│ ├── case-study-api-audit.md  
+│ ├── case-study-video-gen.md  
+│ └── extracao-info-grafo.md  
+│  
+├── tools/  
+│ ├── semantic-density-calculator.py # Multi-model benchmark  
+│ ├── token-counter.py  
+│ ├── baseshot-validator.sh  
+│ └── metrics-evaluator.py  
+│  
+└── research/  
+├── latent-space-activation.md  
+├── empirical-validation-template.md  
+└── literature-review.md
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Por favor:
+
+1. Leia [CONTRIBUTING.md](CONTRIBUTING.md)
+2. Fork o repositório
+3. Crie um branch (`git checkout -b feature/novo-template`)
+4. Valide métricas (SD >0.8, tokens <200, baseshot 5-7)
+5. Commit (`git commit -m 'Add: Novo template validado'`)
+6. Push (`git push origin feature/novo-template`)
+7. Abra um Pull Request
+
+### Checklist de Validação
+- [ ] SD >0.8 (semantic-density-calculator.py)
+- [ ] <200 tokens (token-counter.py)
+- [ ] 5-7 exemplos baseshot (baseshot-validator.sh)
+- [ ] Testado em 2+ modelos LLM
+- [ ] Documentação atualizada
+
+
+---
+
+## 👥 Créditos
+
+
+**🧑‍💻 Desenvolvedor Principal**  
+[Aledev] - Conceptualização e arquitetura original
+
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT - veja [LICENSE](LICENSE) para detalhes.
+
+---
+
+## 🔗 Links
+
+- **Documentação Completa**: [docs/](docs/)
+- **Zenodo DOI**: *(em breve)*
+- **Discussões**: [GitHub Discussions](https://github.com/[seu-usuario]/agente-canivete-cirurgico/discussions)
+- **Issues**: [GitHub Issues](https://github.com/[seu-usuario]/agente-canivete-cirurgico/issues)
+
+---
+
+## 📞 Contato
+
+- **GitHub**: https://github.com/aleeepassarelli
+- **Email**: al.passarelli@@gmail.com
+- **Twitter**: [https://x.com/alpassarelli
+
+---
+
+**⭐ Se este framework foi útil, considere dar uma estrela no GitHub!**
+
+
+
+Minimalismo cirúrgico: cada palavra com propósito, cada métrica com evidência.
+
+
+---
+
+*Versão 0.1 | Outubro 2025 | Licenciado sob MIT*`
+
+---
+
   semantic_density: "{{computed}}"
   redundancy: "{{computed}}"
   checksum: "{{hash(content)}}"
