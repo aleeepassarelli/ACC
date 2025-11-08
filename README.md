@@ -15,8 +15,6 @@
 
   Framework cientificamente validado para criação de agentes LLM ultra-eficientes usando **Semantic Density**, **Baseshot Learning** e **Latent Feature Steering**. 
  
-  Desenvolvido através de colaboração humano-IA multi-agente. 
-
   ---
   [🚀 Quick Start](#-quick-start) | [📖 Documentação](#-documentação) | [🧪 Validação Científica](docs/scientific-validation.md) | [💡 Exemplos](#-exemplos) 
   
@@ -33,14 +31,12 @@ Autor: Aledev
 ❌ Zero validação científica  
 ❌ Resultados inconsistentes
 
-
-`### Solução Cirúrgica`
+### Solução Cirúrgica
 
 ✅ <200 tokens com alta densidade semântica  
 ✅ Portável (GPT-4, Claude, Gemini, Llama)  
 ✅ 6 papers peer-reviewed como base  
 ✅ Métricas quantitativas (SD, κ, token count)
-
 
 ### Resultados Validados - 
 
@@ -48,7 +44,7 @@ Autor: Aledev
 
 ---
 
-## 🏗️ Arquitetura de 4 Camadas`
+## 🏗️ Arquitetura de 4 Camadas
 
 ┌─────────────────────────────────────────┐  
 │ 1. IDENTIDADE (Quem?) │  
@@ -79,14 +75,14 @@ Autor: Aledev
 └─────────────────────────────────────────┘
 
 --- 
-## 🚀 Quick Start ### Instalação`
+## 🚀 Quick Start 
 
 git clone [https://github.com/alepassarelli/agente-canivete-cirurgico.git](https://github.com/%5Bseu-usuario%5D/agente-canivete-cirurgico.git)  
 cd agente-canivete-cirurgico  
 pip install -r requirements.txt
 
 
-`### Uso Básico`
+### Uso Básico
 
 # 1. Escolha um template
 
@@ -113,18 +109,18 @@ response = llm.chat(template + "\n\n" + user_query)
 python tools/semantic-density-calculator.py "Nome Agente" "domínio alvo"
 
 
-`**Output:**`
+**Output:**
 
 Semantic Density (SD): 0.82  
 ✅ APROVADO - SD acima do threshold (>0.6)
 
 
-`### 2. Token Counter`
+### 2. Token Counter
 
 python tools/token-counter.py templates/seu-template.md
 
 
-`### 3. Baseshot Validator`
+### 3. Baseshot Validator
 
 bash tools/baseshot-validator.sh templates/seu-template.md
 
@@ -308,3 +304,4 @@ Minimalismo cirúrgico: cada palavra com propósito, cada métrica com evidênci
   checksum: "{{hash(content)}}"
   mode: "cirúrgico"
   version: "0.1"
+  ---
