@@ -1,7 +1,4 @@
 # 🎯 ACC v1.1.0 
-
-https://github.com/alepassarelli/agente-canivete-cirurgico.git
-
 ---
 
  # 🔪 Framework Agente Canivete Cirúrgico
