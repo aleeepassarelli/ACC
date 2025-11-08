@@ -1,0 +1,14 @@
+# requirements-dev.txt
+# Dependências para DESENVOLVIMENTO (testes, linting, formatting).
+# Instale com: pip install -r requirements-dev.txt
+
+# Core (para que o dev tenha tudo)
+-r requirements.txt
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Formatting & Linting
+black>=23.7.0
+flake8>=6.0.0
