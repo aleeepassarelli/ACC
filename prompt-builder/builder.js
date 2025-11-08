@@ -341,3 +341,142 @@ function getBaseshotExamples() {
     
     return examples;
 }
+// =====================================================
+// PATCH v1.1.1 - LÓGICA DE FORMULÁRIO INTERATIVO
+// (Adicione este código ao final do seu builder.js)
+// =====================================================
+
+/**
+ * Lógica para o botão "Validar Densidade Semântica"
+ * - Conecta-se ao 'alignment-visualizer.js' (que usa a API)
+ */
+const sdValidator = new AlignmentVisualizer('http://localhost:8000'); // Reusa a classe do outro script
+const sdBtn = document.querySelector('#validate-sd-btn');
+const sdDisplay = document.querySelector('#sd-display');
+
+sdBtn?.addEventListener('click', async () => {
+    const agentName = document.querySelector('#agent-name-input').value;
+    const domain = document.querySelector('#domain-input').value;
+
+    if (!agentName || !domain) {
+        alert("Preencha o Nome do Agente e o Domínio para validar o SD.");
+        return;
+    }
+
+    sdDisplay.textContent = 'Calculando...';
+    sdBtn.disabled = true;
+
+    try {
+        // Usa a API real para calcular o SD
+        const data = await sdValidator.fetchAnalysis(agentName, domain);
+        const sdScore = data.semantic_density;
+        
+        sdDisplay.textContent = `${sdScore.toFixed(3)} ${sdScore >= 0.8 ? '✅' : '⚠️'}`;
+        
+        // Salva o score no localStorage para o 'generate-preview-btn' usar
+        localStorage.setItem('tempSdScore', sdScore.toFixed(3));
+        
+    } catch (error) {
+        sdDisplay.textContent = 'Erro';
+        alert("Erro ao validar SD. O backend Python (tools/api-endpoint.py) está rodando?");
+    } finally {
+        sdBtn.disabled = false;
+    }
+});
+
+// Atualiza o 'sd-display' na integração principal
+// (Modifica o event listener principal que já criamos)
+document.querySelector('#generate-preview-btn')?.addEventListener('click', async () => {
+    
+    // Pega o SD score que foi validado e salvo
+    const validatedSdScore = parseFloat(localStorage.getItem('tempSdScore') || 0.0);
+
+    const agentData = {
+        name: document.querySelector('#agent-name-input').value,
+        domain: document.querySelector('#domain-input').value,
+        mission: document.querySelector('#core-principle-input').value, 
+        protocol_items: getProtocolItems(),
+        baseshot_examples: getBaseshotExamples(), 
+        sd_score: validatedSdScore // Usa o score validado
+    };
+
+    localStorage.setItem('tempAgentData', JSON.stringify(agentData));
+
+    try {
+        const data = await previewExporter.generatePreview(agentData);
+        previewExporter.renderPreview(data, '#prompt-preview-container', agentData);
+    } catch (error) {
+        alert('Erro ao gerar preview: ' + error.message);
+    }
+});
+
+
+/**
+ * Lógica para o botão "+ Adicionar Item ao Protocolo"
+ */
+const addProtocolBtn = document.querySelector('#add-protocol-item-btn');
+const protocolContainer = document.querySelector('#protocol-items-container');
+
+addProtocolBtn?.addEventListener('click', () => {
+    const itemCount = protocolContainer.querySelectorAll('.protocol-item').length;
+    
+    const newItem = document.createElement('div');
+    newItem.className = 'form-group protocol-item';
+    newItem.innerHTML = `
+        <input 
+          type="text" 
+          class="protocol-item-input" 
+          placeholder="Ex: ${itemCount + 1}. Nova regra do protocolo..."
+        />
+        <button class="remove-item-btn">X</button>
+    `;
+    
+    // Adiciona o listener para o novo botão "remover"
+    newItem.querySelector('.remove-item-btn').addEventListener('click', () => {
+        newItem.remove();
+    });
+    
+    protocolContainer.appendChild(newItem);
+});
+
+/**
+ * Lógica para o botão "+ Adicionar Exemplo (✅ ou ⚠️)"
+ */
+const addBaseshotBtn = document.querySelector('#add-baseshot-example-btn');
+const baseshotContainer = document.querySelector('#baseshot-examples-container');
+
+addBaseshotBtn?.addEventListener('click', () => {
+    const newItem = document.createElement('div');
+    newItem.className = 'form-group baseshot-example';
+    
+    // HTML para o novo exemplo
+    newItem.innerHTML = `
+        <div class="baseshot-header">
+            <select class="example-type-select">
+                <option value="positive">✅ Caso Ideal</option>
+                <option value="edge">⚠️ Edge Case</option>
+            </select>
+            <button class="remove-item-btn">X</button>
+        </div>
+        <label>Input do Exemplo:</label>
+        <textarea class="example-input" rows="2" placeholder="Input: ..."></textarea>
+        <label>Output Esperado:</label>
+        <textarea class="example-output" rows="2" placeholder="Output: ..."></textarea>
+    `;
+    
+    // Adiciona o listener para o novo botão "remover"
+    newItem.querySelector('.remove-item-btn').addEventListener('click', () => {
+        newItem.remove();
+    });
+    
+    baseshotContainer.appendChild(newItem);
+});
+
+/**
+ * Adiciona listeners aos botões "remover" que já existem no HTML
+ */
+document.querySelectorAll('.remove-item-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.target.closest('.form-group').remove();
+    });
+});
