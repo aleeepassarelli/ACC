@@ -1,55 +1,140 @@
-if __name__ == "__main__":
-    import sys
-    
-    if len(sys.argv) < 3:
-        print("Uso: python alignment_visualizer.py 'nome agente' 'domínio'")
+# tools/cli-test.py
+# v1.1.0 - Ferramenta de Teste de Comportamento (CLI)
+#
+# OBJETIVO:
+# Executar um template de Agente ACC contra um LLM real para 
+# validar o comportamento e a aderência ao protocolo.
+#
+# DEPENDÊNCIAS:
+# 1. google-generativeai (para acesso ao LLM)
+#
+# CONFIGURAÇÃO (Variável de Ambiente):
+# Para usar, você DEVE configurar sua API key:
+# export GOOGLE_API_KEY="SUA_API_KEY_AQUI"
+#
+
+import os
+import sys
+import argparse
+import google.generativeai as genai
+from pathlib import Path
+
+# --- Configuração do LLM ---
+# O modelo padrão "canivete": rápido, barato e potente.
+DEFAULT_MODEL = "gemini-1.5-flash-latest"
+
+def load_api_key():
+    """Carrega a API key da variável de ambiente."""
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        print("Erro: Variável de ambiente 'GOOGLE_API_KEY' não definida.", file=sys.stderr)
+        print("Execute: export GOOGLE_API_KEY='SUA_API_KEY_AQUI'", file=sys.stderr)
+        sys.exit(1)
+    return api_key
+
+def read_template_file(file_path: str) -> str:
+    """Lê o conteúdo do arquivo de template do Agente."""
+    path = Path(file_path)
+    if not path.is_file():
+        print(f"Erro: Arquivo de template não encontrado: {file_path}", file=sys.stderr)
         sys.exit(1)
     
-    name = sys.argv[1]
-    domain = sys.argv[2]
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            return f.read()
+    except Exception as e:
+        print(f"Erro ao ler o arquivo {file_path}: {e}", file=sys.stderr)
+        sys.exit(1)
+
+def run_agent_test(template_content: str, user_query: str, model_name: str) -> str:
+    """
+    Combina o template com o query e executa no LLM.
+    """
     
-    print(f"\n{'='*70}")
-    print(f"🔍 ANÁLISE DE ALINHAMENTO SEMÂNTICO")
-    print(f"{'='*70}\n")
+    # --- O "Acoplamento" Cirúrgico ---
+    # O prompt final é a concatenação do sistema (template) e do usuário (query)
+    full_prompt = f"""{template_content}
+
+---
+TAREFA DO USUÁRIO:
+{user_query}
+"""
     
-    report = generate_alignment_report(name, domain)
+    print(f"⏳ Executando Agente no modelo: {model_name}...")
     
-    print(f"Agente: {report['agent_name']}")
-    print(f"Domínio: {report['domain'][:60]}...")
-    print(f"\nSemantic Density (SD): {report['overall_sd']:.3f}")
-    print(f"Cosine Similarity: {report['cosine_similarity']:.3f}")
-    print(f"Palavras: {report['word_count']}\n")
-    
-    print(f"{'='*70}")
-    print(f"📊 ALINHAMENTO POR TERMO DO DOMÍNIO")
-    print(f"{'='*70}\n")
-    
-    for keyword in report['keywords']:
-        # Barra de progresso visual
-        bar_length = int(keyword['alignment'] * 30)
-        bar = '█' * bar_length + '░' * (30 - bar_length)
+    try:
+        genai.configure(api_key=load_api_key())
+        model = genai.GenerativeModel(model_name)
         
-        print(f"{keyword['word']:<20} {bar} {keyword['alignment']:.3f}")
-        print(f"{'':20} Tipo: {keyword['type']} | Contribuição: {keyword['contribution']:.3f}\n")
+        # Configurações de geração "cirúrgicas"
+        # Baixa temperatura para reduzir alucinação e aumentar a aderência
+        # ao protocolo (determinismo).
+        generation_config = genai.GenerationConfig(
+            temperature=0.1,
+            top_p=0.9,
+            top_k=10
+        )
+        
+        response = model.generate_content(
+            full_prompt,
+            generation_config=generation_config
+        )
+        
+        return response.text
+        
+    except Exception as e:
+        print(f"\nErro durante a chamada da API do LLM: {e}", file=sys.stderr)
+        sys.exit(1)
+
+def main():
+    """
+    Ponto de entrada do CLI.
+    """
+    parser = argparse.ArgumentParser(
+        description='Ferramenta de Teste de Comportamento (ACC v1.1.0)',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+==========================================
+EXEMPLO DE USO (Validando o Hacker Semântico)
+==========================================
+
+$ python tools/cli-test.py \\
+    -t "templates/hacker-semantico.md" \\
+    -q "Analise esta oferta: 'Cloud Mágica que escala infinito e usa IA quântica.'"
+
+... (aguarde a resposta) ...
+
+=========================================
+🤖 RESPOSTA DO AGENTE (SAÍDA ESPERADA)
+=========================================
+- "Infinito": Termo de marketing.
+- "IA quântica": Termo de marketing.
+- Fatores de Custo: Qual a métrica de billing? (CPU, GB, IOPS?)
+- Lock-in: APIs proprietárias? Compatível com S3/Postgres?
+"""
+    )
     
-    print(f"{'='*70}")
-    print(f"💡 INSIGHTS")
+    parser.add_argument('-t', '--template', type=str, required=True,
+                        help='Caminho para o arquivo .md do template do Agente.')
+    parser.add_argument('-q', '--query', type=str, required=True,
+                        help='A tarefa (query) a ser executada pelo Agente.')
+    parser.add_argument('-m', '--model', type=str, default=DEFAULT_MODEL,
+                        help=f'Nome do modelo LLM a ser usado (Padrão: {DEFAULT_MODEL}).')
+    
+    args = parser.parse_args()
+    
+    # 1. Carregar o "cérebro" do Agente
+    template_content = read_template_file(args.template)
+    
+    # 2. Executar a simulação
+    agent_response = run_agent_test(template_content, args.query, args.model)
+    
+    # 3. Imprimir o resultado
+    print(f"\n{'='*70}")
+    print(f"🤖 RESPOSTA DO AGENTE ({args.model})")
     print(f"{'='*70}\n")
-    
-    if report['top_contributors']:
-        print(f"✅ Top Contributors (alta afinidade):")
-        for tc in report['top_contributors']:
-            print(f"   • {tc}")
-        print()
-    
-    if report['weak_links']:
-        print(f"⚠️ Weak Links (baixa afinidade):")
-        for wl in report['weak_links']:
-            print(f"   • {wl}")
-        print()
-    
-    print(f"📋 Recomendações:")
-    for rec in report['recommendations']:
-        print(f"   {rec}")
-    
+    print(agent_response)
     print(f"\n{'='*70}\n")
+
+if __name__ == "__main__":
+    main()
