@@ -1,4 +1,4 @@
-# 🎯 ACC v0.1 
+# 🎯 ACC v1.1.0 
 
       ⚡ intentional inference layer
 
