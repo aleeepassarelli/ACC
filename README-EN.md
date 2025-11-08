@@ -1,6 +1,3 @@
-### 🧬 `README.en.md` (Versão Final)
-
-
 # 🎯 ACC v1.1.0
 ---
 
