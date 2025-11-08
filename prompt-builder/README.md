@@ -1,7 +1,3 @@
-### 🧬 `prompt-builder/README.md` (Arquivo Recomendado)
-
-Aqui está o `README.md` que você deve criar dentro da pasta `prompt-builder/`:
-
 ````markdown
 # ⚠️ Aviso de Execução: Frontend do Prompt Builder
 
