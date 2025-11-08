@@ -7,10 +7,12 @@
  # 🔪 Framework Agente Canivete Cirúrgico
  ---
 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) [![Validation Score](https://img.shields.io/badge/validation-87%25-brightgreen.svg)](docs/scientific-validation.md) [![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](https://zenodo.org) 
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) [![Validation Score](https://img.shields.io/badge/validation-87%25-brightgreen.svg)](docs/scientific-validation.md) [![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)]([https://zenodo.org](https://doi.org/10.5281/zenodo.17506950)) 
   
   ---
-  
+  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg)](https://doi.org/10.5281/zenodo.17506950)
+  ---
+    
   **Minimalismo cirúrgico para engenharia de prompts: cada palavra com propósito, cada métrica com evidência.** 
 
   Framework cientificamente validado para criação de agentes LLM ultra-eficientes usando **Semantic Density**, **Baseshot Learning** e **Latent Feature Steering**. 
