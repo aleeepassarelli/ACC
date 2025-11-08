@@ -130,13 +130,15 @@ bash tools/baseshot-validator.sh templates/seu-template.md
 
 ## 📚 Templates Disponíveis
 
-| Template | Domínio | SD Score | Casos de Uso |
-|----------|---------|----------|--------------|
-| **Hacker Semântico** | Análise técnica | 0.82 | Auditoria APIs, ofertas tech |
-| **Curador Técnico** | Pesquisa científica | 0.78 | Papers, whitepapers |
-| **Arquiteto Reverso** | Engenharia reversa | 0.85 | Análise de sistemas |
-| **Analista Adversarial** | Segurança | 0.91 | Red teaming, validação |
-| **Tradutor Contextual** | Linguística | 0.74 | Tradução técnica |
+Template,Domínio,SD Score,Casos de Uso
+Hacker Semântico,"Análise de sistemas, ofertas tech e auditoria de APIs.",0.82,"Auditoria de APIs, ""red teaming"" lógico."
+CommitAssistant Proposital,Análise de git diffs (Conventional Commits).,0.88,"Gerar git commit semânticos, padronizar changelogs."
+TestGenerator Automático,Geração de testes unitários pytest.,0.85,"Criar testes de unidade, validar edge cases, TDD."
+SecurityScanner Contínuo,Análise estática de vulnerabilidades (OWASP).,0.89,Detecção de SQLi/XSS/Secrets em tempo real.
+DependencyMapper Visualizador,Análise de imports e arquitetura de módulos.,0.87,"Gerar grafos (DOT) de arquitetura, refatoração."
+DeploymentHelper Guiado,"Geração de scripts de CI/CD (Dockerfiles, Shell).",0.86,"Criar Dockerfile seguro, scripts deploy.sh."
+ConfigManager Automatizado,"Geração e ""merge"" seguro de arquivos .env.",0.84,"Gerar .env a partir de .env.example, manter secrets."
+StyleEnforcer Consistente,"Reformatação automática de código (PEP 8, Prettier).",0.82,"Formatar código (linter/formatter), padronizar estilo."
 
 [→ Ver todos os templates](templates/)
 
@@ -145,7 +147,6 @@ bash tools/baseshot-validator.sh templates/seu-template.md
 ## 💡 Exemplos
 
 ### Caso de Uso: Auditoria de API REST
-
 
 INPUT: "Analise esta documentação de API [URL]"
 
@@ -193,44 +194,49 @@ OUTPUT:
 ---
 ## 🛠️ Estrutura do Repositório
 
-agente-canivete-cirurgico/  
-├── README.md # Este arquivo  
-├── LICENSE # MIT  
-├── CONTRIBUTING.md # Guia de contribuição  
-├── CHANGELOG.md # Histórico de versões  
-├── requirements.txt # Dependências Python  
-│  
-├── docs/  
-│ ├── philosophy.md # Fundamentação científica  
-│ ├── cognitive-principles.md # Latent space activation  
-│ ├── best-practices.md # SD como árbitro  
-│ └── scientific-validation.md # Papers e citações  
-│  
-├── templates/  
-│ ├── agentes-desenvolvimennto.md 
-│ ├── agentes-cirurgicos.md  
-│ ├── acoes-desenvolvimento.md  
-│ ├── multi-agentes.md  
-│ └── exemplo-agentes.md  
-│  
-├── examples/  
-│ ├── case-study-api-audit.md  
-│ ├── case-study-video-gen.md  
-│ └── extracao-info-grafo.md  
-│  
-├── tools/  
-│ ├── semantic-density-calculator.py 
-│ ├── alignment-visualizer.py  
-│ ├── next-token-prediction.py 
-│ ├── cli-test.py  
-│ ├── api-endpoint.py 
-│ └── requirements.txt 
-│  
-└── research/  
-├── latent-space-activation.md  
-├── empirical-validation-template.md  
-└── literature-review.md
-
+agente-canivete-cirurgico/
+├── README.md                 # O arquivo principal que estamos editando
+├── LICENSE                   # Licença MIT
+├── CONTRIBUTING.md           # Guia de contribuição (com o checklist)
+├── CHANGELOG.md              # Histórico de versões
+│
+├── requirements.txt          # Dependências CORE (para rodar as tools)
+├── requirements-dev.txt      # Dependências de DEV (pytest, black)
+├── requirements-docs.txt     # Dependências de DOCS (mkdocs)
+├── requirements-research.txt # Dependências de PESQUISA (pandas, matplotlib)
+│
+├── docs/
+│   ├── philosophy.md           # O "Porquê" (O que escrevemos)
+│   ├── cognitive-principles.md # O "Como" (O que escrevemos)
+│   ├── best-practices.md       # (Próximo) Guia: Como criar um Agente
+│   └── scientific-validation.md# (Próximo) Papers e métricas (κ, etc)
+│
+├── templates/                # Templates "Canivete" validados
+│   ├── hacker-semantico.md
+│   ├── commit-assistant-proposital.md
+│   ├── test-generator-automatico.md
+│   ├── security-scanner-continuo.md
+│   ├── dependency-mapper-visualizador.md
+│   ├── deployment-helper-guiado.md
+│   ├── config-manager-automatizado.md
+│   └── style-enforcer-consistente.md
+│
+├── examples/                 # (Próximo) Estudos de caso práticos
+│   ├── case-study-api-audit.md
+│   ├── case-study-git-commit.md
+│   └── case-study-dot-graph.md
+│
+├── tools/                    # A suíte de validação v1.1.0
+│   ├── semantic-density-calculator.py # O "Árbitro" (valida SD e Minimalismo)
+│   ├── alignment_visualizer.py      # O "Diagnóstico" (CLI visual e "coração")
+│   ├── strategy_generator.py        # O "Explorador" (gera nomes candidatos)
+│   ├── token-counter.py             # O "Minimalista" (valida < 200 tokens)
+│   ├── cli-test.py                  # O "Simulador" (testa no LLM real)
+│   └── api-endpoint.py              # O "Servidor" (expõe a lógica via API)
+│
+└── research/                 # (Opcional) Notebooks e validação empírica
+    ├── empirical-validation-template.md
+    └── literature-review.md
 ---
 
 ## 🤝 Contribuindo
