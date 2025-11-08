@@ -1,6 +1,6 @@
 # 🎯 ACC v1.1.0 
 
-      ⚡ intentional inference layer
+https://github.com/alepassarelli/agente-canivete-cirurgico.git
 
 ---
 
