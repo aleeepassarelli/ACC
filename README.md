@@ -241,6 +241,7 @@ agente-canivete-cirurgico/
 └── research/                 # (Opcional) Notebooks e validação empírica
     ├── empirical-validation-template.md
     └── literature-review.md
+```
 ---
 
 ## 🤝 Contribuindo
