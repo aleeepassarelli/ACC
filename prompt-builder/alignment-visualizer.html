@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canivete Cirúrgico - Alignment Visualizer</title>
+    
+    <link rel="stylesheet" href="alignment-visualizer.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🔪 Visualizador de Alinhamento (v1.1.0)</h1>
+        
+        <div class="input-section">
+            <label for="agent-name-input">Nome do Agente (Identidade)</label>
+            <input type="text" id="agent-name-input" placeholder="Ex: Hacker Semântico">
+            
+            <label for="domain-input">Domínio Alvo</label>
+            <textarea id="domain-input" rows="3" 
+                      placeholder="Ex: Análise forense de APIs e ofertas de tecnologia..."></textarea>
+        </div>
+        
+        <div id="alignment-visualizer-container">
+            <p class="info">Digite um Nome de Agente e um Domínio para iniciar a análise...</p>
+        </div>
+    </div>
+    
+    <script src="alignment-visualizer.js"></script>
+
+</body>
+</html>
