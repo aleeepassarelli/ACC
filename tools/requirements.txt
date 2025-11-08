@@ -1,0 +1,27 @@
+
+# Framework Agente Canivete Cirúrgico v0.1
+# Dependências Python
+
+# Core
+sentence-transformers>=2.2.2    # Semantic Density Calculator
+tiktoken>=0.5.0                 # Token Counter (GPT-4 encoding)
+numpy>=1.24.0                   # Cálculos numéricos
+
+# Optional (para benchmarks)
+torch>=2.0.0                    # Backend sentence-transformers
+transformers>=4.30.0            # Hugging Face models
+
+# Development & Testing
+pytest>=7.4.0                   # Unit tests
+pytest-cov>=4.1.0               # Coverage reports
+black>=23.7.0                   # Code formatting
+flake8>=6.0.0                   # Linting
+
+# Documentation
+mkdocs>=1.5.0                   # GitHub Pages
+mkdocs-material>=9.1.0          # Material theme
+
+# Analytics (opcional)
+pandas>=2.0.0                   # Análise de dados do form
+matplotlib>=3.7.0               # Visualizações
+seaborn>=0.12.0                 # Gráficos estatísticos
