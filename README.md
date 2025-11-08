@@ -197,6 +197,7 @@ OUTPUT:
 ---
 ## 🛠️ Estrutura do Repositório
 
+```bash
 agente-canivete-cirurgico/
 ├── README.md                 # O arquivo principal que estamos editando
 ├── LICENSE                   # Licença MIT
