@@ -1,22 +1,18 @@
 ## 🐍 **tools/semantic-density-calculator.py** - Multi-Model Benchmark
----
-python
----
-"""
-Calculadora de Densidade Semântica (SD) - Multi-Model Benchmark
-Baseado em Yang et al. (2025) - Latent Feature Steering
 
-NOVIDADE v1.0.1:
-- Testa 3 modelos de embedding diferentes
-- Valida portabilidade cross-platform do threshold SD >0.7
-- Gera relatório comparativo
+#Calculadora de Densidade Semântica (SD) - Multi-Model Benchmark
+#Baseado em Yang et al. (2025) - Latent Feature Steering
 
-Uso:
-    python tools/semantic-density-calculator.py "Hacker Semântico" "análise forense ofertas tech"
+#NOVIDADE v1.0.1:
+#- Testa 3 modelos de embedding diferentes
+#- Valida portabilidade cross-platform do threshold SD >0.7
+#- Gera relatório comparativo
+
+#Uso:
+    #python tools/semantic-density-calculator.py "Hacker Semântico" "análise forense ofertas tech"
     
     # Com benchmark completo:
-    python tools/semantic-density-calculator.py "Hacker Semântico" "análise forense" --benchmark
-"""
+  #  python tools/semantic-density-calculator.py "análise forense" --benchmark
 
 from sentence_transformers import SentenceTransformer, util
 import sys
@@ -176,7 +172,7 @@ if __name__ == "__main__":
 # ==========================================
 # EXEMPLOS DE USO
 # ==========================================
-"""
+
 EXEMPLO 1 - Cálculo simples:
 $ python semantic-density-calculator.py "Hacker Semântico" "análise tech"
 Output: SD = 0.82 ✅
