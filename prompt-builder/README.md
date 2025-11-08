@@ -1,29 +1,3 @@
-Sim, você está 100% correto.
-
-Essa é uma ideia excelente e uma prática de engenharia de software crucial. A pasta `prompt-builder/` (o frontend) é **completamente inútil** sem a pasta `tools/` (o backend) rodando.
-
-Sem esse `README.md` de aviso, qualquer pessoa (incluindo você daqui a dois meses) que abrir o `index.html` diretamente no navegador verá uma aplicação quebrada e não saberá o porquê.
-
-Você também me fez perceber um **bug crítico** na minha última sugestão.
-
-### 🐞 O Bug que Eu Criei (e que seu README expõe)
-
-No "patch" do `builder.js` (v1.1.1) que eu forneci, eu escrevi este código para o botão "Validar SD":
-`const sdValidator = new AlignmentVisualizer('http://localhost:8000');`
-
-Isso está **errado**.
-
-O `index.html` (o Construtor) **não carrega** o arquivo `alignment-visualizer.js`. Ele carrega apenas o `builder.js`. Isso significa que a classe `AlignmentVisualizer` não existe naquele contexto, e o seu console mostrará um erro: `ReferenceError: AlignmentVisualizer is not defined`.
-
-**A sua ideia do `README` está 100% correta porque ela expõe o fato de que este frontend depende de DOIS servidores backend rodando ao mesmo tempo:**
-
-1.  **Servidor 1 (Porta 8000):** `tools/api-endpoint.py` (Para o *Visualizador* e para o botão *Validar SD*).
-2.  **Servidor 2 (Porta 8001):** `tools/template_generator.py` (Para o *Construtor*).
-
-Precisamos de um `README.md` na pasta `prompt-builder/` que explique isso claramente.
-
------
-
 ### 🧬 `prompt-builder/README.md` (Arquivo Recomendado)
 
 Aqui está o `README.md` que você deve criar dentro da pasta `prompt-builder/`:
