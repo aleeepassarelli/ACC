@@ -1,12 +1,14 @@
 /**
- * Prompt Preview & Export System
- * Visualiza preview do prompt e permite copiar/download
+ * Prompt Preview & Export System (v1.1.0)
+ * Alinhado com o backend 'template_generator.py' (v1.1.0)
  */
 
 class PromptPreviewExporter {
     constructor(apiBaseUrl = 'http://localhost:8000') {
         this.apiBaseUrl = apiBaseUrl;
-        this.currentMarkdown = '';
+        
+        // v1.1.0 CHANGE: O backend agora envia 'markdown_template'
+        this.currentMarkdownTemplate = '';
     }
 
     /**
@@ -14,7 +16,8 @@ class PromptPreviewExporter {
      */
     async generatePreview(agentData) {
         try {
-            const response = await fetch(`${this.apiBaseUrl}/api/generate-prompt`, {
+            // v1.1.0 CHANGE: Endpoint corrigido de '/api/generate-prompt'
+            const response = await fetch(`${this.apiBaseUrl}/api/v1/generate-template`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -28,7 +31,9 @@ class PromptPreviewExporter {
             }
 
             const data = await response.json();
-            this.currentMarkdown = data.markdown;
+            
+            // v1.1.0 CHANGE: Armazena 'markdown_template' em vez de 'markdown'
+            this.currentMarkdownTemplate = data.markdown_template;
 
             return data;
 
@@ -49,17 +54,19 @@ class PromptPreviewExporter {
             return;
         }
 
-        // Converter Markdown para HTML para preview visual
-        const htmlPreview = this.markdownToHTML(data.markdown);
+        // v1.1.0 CHANGE: A "Aba Visual" agora é uma <pre> para o ASCII-box.
+        // A função markdownToHTML() foi removida pois não é mais necessária.
+        // Nós exibimos o texto pré-formatado (ASCII) em ambas as abas.
+        const asciiPreview = this.escapeHTML(data.markdown_template);
 
         const html = `
             <div class="prompt-preview-container">
                 <div class="preview-header">
-                    <h3>📋 Preview do Prompt</h3>
+                    <h3>📋 Preview do Template (v1.1.0)</h3>
                     <div class="preview-metrics">
                         <span class="metric">
-                            <strong>Tokens:</strong> ~${data.token_estimate}
-                            ${data.token_estimate > 200 ? '⚠️' : '✅'}
+                            <strong>Tokens:</strong> ${data.token_count}
+                            ${data.token_count > 200 ? '⚠️' : '✅'}
                         </span>
                         <span class="metric">
                             <strong>SD:</strong> ${data.sd_score ? data.sd_score.toFixed(3) : 'N/A'}
@@ -71,41 +78,38 @@ class PromptPreviewExporter {
 
                 <div class="preview-tabs">
                     <button class="tab-btn active" data-tab="visual">
-                        👁️ Visual
+                        👁️ Visual (ASCII)
                     </button>
                     <button class="tab-btn" data-tab="markdown">
-                        📝 Markdown
+                        📝 Markdown (Raw)
                     </button>
                 </div>
 
                 <div class="tab-content active" data-tab-content="visual">
-                    <div class="preview-visual">
-                        ${htmlPreview}
-                    </div>
+                    <pre class="preview-visual-ascii"><code>${asciiPreview}</code></pre>
                 </div>
 
                 <div class="tab-content" data-tab-content="markdown">
-                    <pre class="preview-markdown"><code>${this.escapeHTML(data.markdown)}</code></pre>
+                    <pre class="preview-markdown"><code>${asciiPreview}</code></pre>
                 </div>
 
                 <div class="preview-actions">
                     <button class="btn btn-primary" id="copy-prompt-btn">
-                        📋 Copiar Prompt
+                        📋 Copiar Template
                     </button>
                     <button class="btn btn-secondary" id="download-prompt-btn">
                         💾 Download .md
                     </button>
-                    <button class="btn btn-tertiary" id="share-prompt-btn">
-                        🔗 Compartilhar
-                    </button>
-                </div>
+                    </div>
             </div>
         `;
 
         container.innerHTML = html;
 
         // Adicionar event listeners
-        this.attachEventListeners(container, data);
+        // v1.1.0 CHANGE: Passa o 'agentData' para o handler de download
+        const agentData = JSON.parse(localStorage.getItem('tempAgentData') || '{}');
+        this.attachEventListeners(container, data, agentData);
     }
 
     /**
@@ -117,38 +121,6 @@ class PromptPreviewExporter {
                 ${warnings.map(w => `<div class="warning-item">${w}</div>`).join('')}
             </div>
         `;
-    }
-
-    /**
-     * Converte Markdown simples para HTML
-     * (versão simplificada, para produção use biblioteca como marked.js)
-     */
-    markdownToHTML(markdown) {
-        let html = markdown;
-
-        // Headers
-        html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-        html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-        html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-
-        // Bold
-        html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
-
-        // Italic
-        html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
-
-        // Lists
-        html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
-        html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-
-        // Horizontal rule
-        html = html.replace(/^---$/gim, '<hr>');
-
-        // Line breaks
-        html = html.replace(/\n\n/g, '</p><p>');
-        html = '<p>' + html + '</p>';
-
-        return html;
     }
 
     /**
@@ -168,7 +140,7 @@ class PromptPreviewExporter {
     /**
      * Adiciona event listeners
      */
-    attachEventListeners(container, data) {
+    attachEventListeners(container, data, agentData) {
         // Tabs
         const tabBtns = container.querySelectorAll('.tab-btn');
         tabBtns.forEach(btn => {
@@ -181,19 +153,15 @@ class PromptPreviewExporter {
         // Copiar
         const copyBtn = container.querySelector('#copy-prompt-btn');
         copyBtn.addEventListener('click', () => {
-            this.copyToClipboard(this.currentMarkdown);
+            this.copyToClipboard(this.currentMarkdownTemplate);
         });
 
         // Download
         const downloadBtn = container.querySelector('#download-prompt-btn');
         downloadBtn.addEventListener('click', () => {
-            this.downloadMarkdown(this.currentMarkdown, data);
-        });
-
-        // Compartilhar
-        const shareBtn = container.querySelector('#share-prompt-btn');
-        shareBtn.addEventListener('click', () => {
-            this.sharePrompt(this.currentMarkdown);
+            // v1.1.0 CHANGE: Chama o endpoint de exportação do backend,
+            // que já lida com a criação do arquivo.
+            this.exportAndDownload(agentData);
         });
     }
 
@@ -220,77 +188,68 @@ class PromptPreviewExporter {
     async copyToClipboard(markdown) {
         try {
             await navigator.clipboard.writeText(markdown);
-            this.showFeedback('✅ Prompt copiado!', 'success');
+            this.showFeedback('✅ Template copiado!', 'success');
         } catch (err) {
-            // Fallback para navegadores antigos
+            // Fallback
             const textarea = document.createElement('textarea');
             textarea.value = markdown;
             document.body.appendChild(textarea);
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-
-            this.showFeedback('✅ Prompt copiado!', 'success');
+            this.showFeedback('✅ Template copiado!', 'success');
         }
     }
 
     /**
-     * Download do prompt como arquivo .md
+     * v1.1.0 CHANGE: Nova função para chamar o endpoint de exportação do backend
+     * O backend agora cria o arquivo .md para nós.
      */
-    downloadMarkdown(markdown, data) {
-        const agentName = data.markdown.match(/# 🔪 (.*)/)?.[1] || 'agente';
-        const safeName = agentName.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[-\s]+/g, '-');
-        const filename = `agente-${safeName}.md`;
+    async exportAndDownload(agentData) {
+        try {
+            const response = await fetch(`${this.apiBaseUrl}/api/v1/export-template`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(agentData)
+            });
 
-        const blob = new Blob([markdown], {
-            type: 'text/markdown'
-        });
-        const url = URL.createObjectURL(blob);
-
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        URL.revokeObjectURL(url);
-
-        this.showFeedback('💾 Download iniciado!', 'success');
-    }
-
-    /**
-     * Compartilha prompt (Web Share API ou fallback)
-     */
-    async sharePrompt(markdown) {
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: 'Agente Canivete Cirúrgico',
-                    text: markdown.substring(0, 200) + '...',
-                    url: window.location.href
-                });
-                this.showFeedback('🔗 Compartilhado!', 'success');
-            } catch (err) {
-                console.log('Compartilhamento cancelado');
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.detail || 'Erro ao exportar');
             }
-        } else {
-            // Fallback: copiar link
-            await navigator.clipboard.writeText(window.location.href);
-            this.showFeedback('🔗 Link copiado!', 'success');
+
+            const blob = await response.blob();
+            const filename = response.headers.get('content-disposition')?.split('filename=')[1] || 'agente-exportado.md';
+            
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            this.showFeedback('💾 Download iniciado!', 'success');
+
+        } catch (error) {
+            console.error('Erro no download:', error);
+            this.showFeedback('❌ Erro no download.', 'error'); // 'error' type needs to be defined in CSS
         }
     }
+    
+    // v1.1.0 CHANGE: Removida a função downloadMarkdown() pois foi substituída por exportAndDownload()
+    // v1.1.0 CHANGE: Removida a função sharePrompt() por simplicidade
 
     /**
      * Mostra feedback visual
      */
     showFeedback(message, type = 'success') {
+        // ... (o código de feedback está bom, sem mudanças) ...
         const feedback = document.createElement('div');
-        feedback.className = `feedback feedback-${type}`;
+        feedback.className = `feedback feedback-${type}`; // (Ensure 'feedback-error' is styled in CSS)
         feedback.textContent = message;
-
         document.body.appendChild(feedback);
-
         setTimeout(() => {
             feedback.classList.add('fade-out');
             setTimeout(() => feedback.remove(), 300);
@@ -299,26 +258,38 @@ class PromptPreviewExporter {
 }
 
 // =====================================================
-// INTEGRAÇÃO NO APP
+// INTEGRAÇÃO NO APP (v1.1.0)
 // =====================================================
 
 const previewExporter = new PromptPreviewExporter('http://localhost:8000');
 
 // Botão "Gerar Preview"
 document.querySelector('#generate-preview-btn')?.addEventListener('click', async () => {
+    
+    // v1.1.0 CHANGE: O payload (JSON) foi alinhado com o backend v1.1.0 (Python)
     const agentData = {
         name: document.querySelector('#agent-name-input').value,
         domain: document.querySelector('#domain-input').value,
-        core_principle: document.querySelector('#core-principle-input').value,
-        anti_pattern: document.querySelector('#anti-pattern-input').value,
-        protocol_items: getProtocolItems(), // Função custom para extrair lista
-        baseshot_examples: getBaseshotExamples(), // Função custom
-        sd_score: parseFloat(document.querySelector('#sd-display').textContent)
+        
+        // v1.1.0 CHANGE: 'core_principle' (v1.0) foi renomeado para 'mission' (v1.1.0)
+        mission: document.querySelector('#core-principle-input').value, 
+        
+        protocol_items: getProtocolItems(),
+        
+        // v1.1.0 CHANGE: O 'anti_pattern' (v1.0) agora é tratado
+        // pela função getBaseshotExamples (v1.1.0)
+        baseshot_examples: getBaseshotExamples(), 
+        
+        sd_score: parseFloat(document.querySelector('#sd-display')?.textContent || 0.0)
     };
+
+    // v1.1.0 CHANGE: Salva os dados no localStorage para que o botão
+    // de Download (que é renderizado dinamicamente) possa acessá-los.
+    localStorage.setItem('tempAgentData', JSON.stringify(agentData));
 
     try {
         const data = await previewExporter.generatePreview(agentData);
-        previewExporter.renderPreview(data, '#prompt-preview-container');
+        previewExporter.renderPreview(data, '#prompt-preview-container', agentData);
     } catch (error) {
         alert('Erro ao gerar preview: ' + error.message);
     }
@@ -335,8 +306,12 @@ function getProtocolItems() {
     return items;
 }
 
+// v1.1.0 CHANGE: Esta função agora também captura o "Anti-Padrão"
+// e o insere na lista de 'baseshot' como 'type: "negative"'.
 function getBaseshotExamples() {
     const examples = [];
+    
+    // 1. Pega todos os exemplos dinâmicos (positivos e edge)
     document.querySelectorAll('.baseshot-example').forEach(example => {
         const type = example.querySelector('.example-type-select').value;
         const input = example.querySelector('.example-input').value;
@@ -350,5 +325,19 @@ function getBaseshotExamples() {
             });
         }
     });
+
+    // 2. Pega o "Anti-Padrão" (o Erro Comum) e o formata como um 'negative' baseshot
+    const antiPatternReason = document.querySelector('#anti-pattern-input').value.trim();
+    const antiPatternOutput = document.querySelector('#anti-pattern-output-input')?.value.trim() || "(Exemplo de saída ruim)"; // Opcional
+
+    if (antiPatternReason) {
+        examples.push({
+            type: "negative",
+            // No v1.1.0, o "input" é a *razão* do erro, e o "output" é o exemplo de saída ruim
+            input: antiPatternReason,
+            output: antiPatternOutput
+        });
+    }
+    
     return examples;
 }
