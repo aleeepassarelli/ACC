@@ -1,5 +1,5 @@
 /* =====================================================
-   PROMPT PREVIEW & EXPORT STYLES
+   PROMPT PREVIEW & EXPORT STYLES (v1.0)
    ===================================================== */
 
 .prompt-preview-container {
@@ -99,8 +99,10 @@
     display: block;
 }
 
-/* Preview Visual */
+/* Preview Visual (v1.0 - DEPRECATED, kept for history) */
 .preview-visual {
+    /* Este bloco não é mais usado pelo v1.1.0, 
+       mas não há problema em mantê-lo. */
     background: #f8f9fa;
     padding: 24px;
     border-radius: 8px;
@@ -110,51 +112,8 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
 }
+/* ... (estilos .preview-visual h1, h2, etc. ... */
 
-.preview-visual h1 {
-    font-size: 28px;
-    color: #333;
-    margin: 0 0 8px 0;
-    border-bottom: 3px solid #2196f3;
-    padding-bottom: 12px;
-}
-
-.preview-visual h2 {
-    font-size: 20px;
-    color: #444;
-    margin: 24px 0 12px 0;
-}
-
-.preview-visual h3 {
-    font-size: 16px;
-    color: #555;
-    margin: 16px 0 8px 0;
-}
-
-.preview-visual p {
-    color: #666;
-    margin: 12px 0;
-}
-
-.preview-visual ul {
-    padding-left: 24px;
-    color: #666;
-}
-
-.preview-visual li {
-    margin-bottom: 8px;
-}
-
-.preview-visual hr {
-    border: none;
-    border-top: 2px dashed #e0e0e0;
-    margin: 20px 0;
-}
-
-.preview-visual em {
-    color: #999;
-    font-style: italic;
-}
 
 /* Preview Markdown */
 .preview-markdown {
@@ -242,6 +201,11 @@
     color: white;
 }
 
+.feedback-error { /* Para os nossos novos handlers de erro */
+    background: #f44336;
+    color: white;
+}
+
 .feedback.fade-out {
     animation: fadeOut 0.3s;
 }
@@ -313,4 +277,26 @@
         flex-direction: column;
         gap: 8px;
     }
+}
+
+/* =====================================================
+   PATCH v1.1.0 - Estilo para a Aba Visual ASCII
+   ===================================================== */
+
+/* * Estiliza a "Aba Visual" para agir como a "Aba Markdown",
+* mas com um fundo claro, como o v1.0 original pretendia.
+*/
+.preview-visual-ascii {
+    background: #f8f9fa; /* Fundo claro (do seu .preview-visual) */
+    color: #2d2d2d;      /* Texto escuro */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    max-height: 600px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
