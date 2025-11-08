@@ -173,29 +173,26 @@ if __name__ == "__main__":
 # EXEMPLOS DE USO
 # ==========================================
 
-EXEMPLO 1 - Cálculo simples:
-$ python semantic-density-calculator.py "Hacker Semântico" "análise tech"
-Output: SD = 0.82 ✅
+#EXEMPLO 1 - Cálculo simples:
+#$ python semantic-density-calculator.py "Hacker Semântico" "análise tech"
+#Output: SD = 0.82 ✅
 
-EXEMPLO 2 - Benchmark completo:
-$ python semantic-density-calculator.py "Hacker Semântico" "análise tech" --benchmark
-Output: 
-    miniLM:        SD = 0.82 ✅
-    mpnet:         SD = 0.79 ✅
-    multilingual:  SD = 0.75 ✅
-    VEREDICTO: ✅ APROVADO CROSS-PLATFORM
+#EXEMPLO 2 - Benchmark completo:
+#$ python semantic-density-calculator.py "Hacker Semântico" "análise tech" --benchmark
+#Output: 
+  #  miniLM:        SD = 0.82 ✅
+   # mpnet:         SD = 0.79 ✅
+  #  multilingual:  SD = 0.75 ✅
+  #  VEREDICTO: ✅ APROVADO CROSS-PLATFORM
 
-EXEMPLO 3 - Teste de nomenclatura ruim:
-$ python semantic-density-calculator.py "Analista" "análise técnica" --benchmark
-Output:
-    SD médio = 0.38 ❌
-    VEREDICTO: ❌ REPROVADO
+# EXEMPLO 3 - Teste de nomenclatura ruim:
+# $ python semantic-density-calculator.py "Analista" "análise técnica" --benchmark
+# Output:
+    # SD médio = 0.38 ❌
+    # VEREDICTO: ❌ REPROVADO
     
-EXEMPLO 4 - Teste de excesso (diluição):
-$ python semantic-density-calculator.py "Hacker Semântico Forense Estrategista Especializado" "análise tech"
-Output:
-    SD = 0.52 ❌ (diluição por excesso de palavras)
-"""
+# EXEMPLO 4 - Teste de excesso (diluição):
+# $ python semantic-density-calculator.py "Hacker Semântico Forense Estrategista Especializado" "análise tech"
+# Output:
+    # SD = 0.52 ❌ (diluição por excesso de palavras)
 
-
----
