@@ -1,6 +1,8 @@
 /**
- * Prompt Preview & Export System (v1.1.0)
- * Alinhado com o backend 'template_generator.py' (v1.1.0)
+ * Prompt Preview & Export System (v1.1.2)
+ * Alinhado com os backends v1.1.0:
+ * - template_generator.py (Porta 8001)
+ * - api-endpoint.py (Porta 8000)
  */
 
 class PromptPreviewExporter {
@@ -55,8 +57,6 @@ class PromptPreviewExporter {
         }
 
         // v1.1.0 CHANGE: A "Aba Visual" agora é uma <pre> para o ASCII-box.
-        // A função markdownToHTML() foi removida pois não é mais necessária.
-        // Nós exibimos o texto pré-formatado (ASCII) em ambas as abas.
         const asciiPreview = this.escapeHTML(data.markdown_template);
 
         const html = `
@@ -100,14 +100,13 @@ class PromptPreviewExporter {
                     <button class="btn btn-secondary" id="download-prompt-btn">
                         💾 Download .md
                     </button>
-                    </div>
+                </div>
             </div>
         `;
 
         container.innerHTML = html;
 
         // Adicionar event listeners
-        // v1.1.0 CHANGE: Passa o 'agentData' para o handler de download
         const agentData = JSON.parse(localStorage.getItem('tempAgentData') || '{}');
         this.attachEventListeners(container, data, agentData);
     }
@@ -159,8 +158,6 @@ class PromptPreviewExporter {
         // Download
         const downloadBtn = container.querySelector('#download-prompt-btn');
         downloadBtn.addEventListener('click', () => {
-            // v1.1.0 CHANGE: Chama o endpoint de exportação do backend,
-            // que já lida com a criação do arquivo.
             this.exportAndDownload(agentData);
         });
     }
@@ -202,11 +199,11 @@ class PromptPreviewExporter {
     }
 
     /**
-     * v1.1.0 CHANGE: Nova função para chamar o endpoint de exportação do backend
-     * O backend agora cria o arquivo .md para nós.
+     * v1.1.0: Chama o endpoint de exportação do backend
      */
     async exportAndDownload(agentData) {
         try {
+            // v1.1.2 CORREÇÃO: Aponta para a API correta (porta 8001)
             const response = await fetch(`${this.apiBaseUrl}/api/v1/export-template`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -234,20 +231,16 @@ class PromptPreviewExporter {
 
         } catch (error) {
             console.error('Erro no download:', error);
-            this.showFeedback('❌ Erro no download.', 'error'); // 'error' type needs to be defined in CSS
+            this.showFeedback('❌ Erro no download.', 'error');
         }
     }
     
-    // v1.1.0 CHANGE: Removida a função downloadMarkdown() pois foi substituída por exportAndDownload()
-    // v1.1.0 CHANGE: Removida a função sharePrompt() por simplicidade
-
     /**
      * Mostra feedback visual
      */
     showFeedback(message, type = 'success') {
-        // ... (o código de feedback está bom, sem mudanças) ...
         const feedback = document.createElement('div');
-        feedback.className = `feedback feedback-${type}`; // (Ensure 'feedback-error' is styled in CSS)
+        feedback.className = `feedback feedback-${type}`;
         feedback.textContent = message;
         document.body.appendChild(feedback);
         setTimeout(() => {
@@ -258,40 +251,39 @@ class PromptPreviewExporter {
 }
 
 // =====================================================
-// INTEGRAÇÃO NO APP (v1.1.0)
+// INTEGRAÇÃO NO APP (v1.1.2)
 // =====================================================
 
-const previewExporter = new PromptPreviewExporter('http://localhost:8000');
+// v1.1.2 CORREÇÃO: A API do *Construtor* roda na porta 8001
+const previewExporter = new PromptPreviewExporter('http://localhost:8001');
+
+// v1.1.2 CORREÇÃO: A API de *Análise (SD)* roda na porta 8000
+const SD_API_URL = 'http://localhost:8000/api/v1/analyze-alignment';
+
 
 // Botão "Gerar Preview"
 document.querySelector('#generate-preview-btn')?.addEventListener('click', async () => {
     
-    // v1.1.0 CHANGE: O payload (JSON) foi alinhado com o backend v1.1.0 (Python)
+    const validatedSdScore = parseFloat(localStorage.getItem('tempSdScore') || 0.0);
+
     const agentData = {
         name: document.querySelector('#agent-name-input').value,
         domain: document.querySelector('#domain-input').value,
-        
-        // v1.1.0 CHANGE: 'core_principle' (v1.0) foi renomeado para 'mission' (v1.1.0)
         mission: document.querySelector('#core-principle-input').value, 
-        
         protocol_items: getProtocolItems(),
-        
-        // v1.1.0 CHANGE: O 'anti_pattern' (v1.0) agora é tratado
-        // pela função getBaseshotExamples (v1.1.0)
         baseshot_examples: getBaseshotExamples(), 
-        
-        sd_score: parseFloat(document.querySelector('#sd-display')?.textContent || 0.0)
+        sd_score: validatedSdScore
     };
 
-    // v1.1.0 CHANGE: Salva os dados no localStorage para que o botão
-    // de Download (que é renderizado dinamicamente) possa acessá-los.
     localStorage.setItem('tempAgentData', JSON.stringify(agentData));
 
     try {
-        const data = await previewExporter.generatePreview(agentData);
+        // Chama a porta 8001
+        const data = await previewExporter.generatePreview(agentData); 
         previewExporter.renderPreview(data, '#prompt-preview-container', agentData);
+    
     } catch (error) {
-        alert('Erro ao gerar preview: ' + error.message);
+        alert('Erro ao gerar preview: ' + error.message + "\n\nO backend Python 'tools/template_generator.py' (porta 8001) está rodando?");
     }
 });
 
@@ -306,34 +298,25 @@ function getProtocolItems() {
     return items;
 }
 
-// v1.1.0 CHANGE: Esta função agora também captura o "Anti-Padrão"
-// e o insere na lista de 'baseshot' como 'type: "negative"'.
 function getBaseshotExamples() {
     const examples = [];
     
-    // 1. Pega todos os exemplos dinâmicos (positivos e edge)
     document.querySelectorAll('.baseshot-example').forEach(example => {
         const type = example.querySelector('.example-type-select').value;
         const input = example.querySelector('.example-input').value;
         const output = example.querySelector('.example-output').value;
 
         if (input && output) {
-            examples.push({
-                type,
-                input,
-                output
-            });
+            examples.push({ type, input, output });
         }
     });
 
-    // 2. Pega o "Anti-Padrão" (o Erro Comum) e o formata como um 'negative' baseshot
     const antiPatternReason = document.querySelector('#anti-pattern-input').value.trim();
-    const antiPatternOutput = document.querySelector('#anti-pattern-output-input')?.value.trim() || "(Exemplo de saída ruim)"; // Opcional
+    const antiPatternOutput = document.querySelector('#anti-pattern-output-input')?.value.trim() || "(Exemplo de saída ruim)";
 
     if (antiPatternReason) {
         examples.push({
             type: "negative",
-            // No v1.1.0, o "input" é a *razão* do erro, e o "output" é o exemplo de saída ruim
             input: antiPatternReason,
             output: antiPatternOutput
         });
@@ -341,16 +324,16 @@ function getBaseshotExamples() {
     
     return examples;
 }
+
 // =====================================================
-// PATCH v1.1.1 - LÓGICA DE FORMULÁRIO INTERATIVO
-// (Adicione este código ao final do seu builder.js)
+// PATCH v1.1.2 - LÓGICA DE FORMULÁRIO INTERATIVO
 // =====================================================
 
 /**
- * Lógica para o botão "Validar Densidade Semântica"
- * - Conecta-se ao 'alignment-visualizer.js' (que usa a API)
+ * v1.1.2 CORREÇÃO: Lógica para o botão "Validar Densidade Semântica"
+ * - Não usa mais a classe 'AlignmentVisualizer'.
+ * - Faz sua própria chamada 'fetch' para a porta 8000.
  */
-const sdValidator = new AlignmentVisualizer('http://localhost:8000'); // Reusa a classe do outro script
 const sdBtn = document.querySelector('#validate-sd-btn');
 const sdDisplay = document.querySelector('#sd-display');
 
@@ -367,8 +350,22 @@ sdBtn?.addEventListener('click', async () => {
     sdBtn.disabled = true;
 
     try {
-        // Usa a API real para calcular o SD
-        const data = await sdValidator.fetchAnalysis(agentName, domain);
+        // v1.1.2: Faz a chamada fetch para a API de análise (porta 8000)
+        const response = await fetch(SD_API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                agent_name: agentName,
+                domain: domain
+            })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.detail || 'Erro de servidor');
+        }
+
+        const data = await response.json();
         const sdScore = data.semantic_density;
         
         sdDisplay.textContent = `${sdScore.toFixed(3)} ${sdScore >= 0.8 ? '✅' : '⚠️'}`;
@@ -377,39 +374,13 @@ sdBtn?.addEventListener('click', async () => {
         localStorage.setItem('tempSdScore', sdScore.toFixed(3));
         
     } catch (error) {
+        console.error("Erro ao validar SD:", error);
         sdDisplay.textContent = 'Erro';
-        alert("Erro ao validar SD. O backend Python (tools/api-endpoint.py) está rodando?");
+        alert("Erro ao validar SD. O backend Python 'tools/api-endpoint.py' (porta 8000) está rodando?");
     } finally {
         sdBtn.disabled = false;
     }
 });
-
-// Atualiza o 'sd-display' na integração principal
-// (Modifica o event listener principal que já criamos)
-document.querySelector('#generate-preview-btn')?.addEventListener('click', async () => {
-    
-    // Pega o SD score que foi validado e salvo
-    const validatedSdScore = parseFloat(localStorage.getItem('tempSdScore') || 0.0);
-
-    const agentData = {
-        name: document.querySelector('#agent-name-input').value,
-        domain: document.querySelector('#domain-input').value,
-        mission: document.querySelector('#core-principle-input').value, 
-        protocol_items: getProtocolItems(),
-        baseshot_examples: getBaseshotExamples(), 
-        sd_score: validatedSdScore // Usa o score validado
-    };
-
-    localStorage.setItem('tempAgentData', JSON.stringify(agentData));
-
-    try {
-        const data = await previewExporter.generatePreview(agentData);
-        previewExporter.renderPreview(data, '#prompt-preview-container', agentData);
-    } catch (error) {
-        alert('Erro ao gerar preview: ' + error.message);
-    }
-});
-
 
 /**
  * Lógica para o botão "+ Adicionar Item ao Protocolo"
@@ -431,7 +402,6 @@ addProtocolBtn?.addEventListener('click', () => {
         <button class="remove-item-btn">X</button>
     `;
     
-    // Adiciona o listener para o novo botão "remover"
     newItem.querySelector('.remove-item-btn').addEventListener('click', () => {
         newItem.remove();
     });
@@ -449,7 +419,6 @@ addBaseshotBtn?.addEventListener('click', () => {
     const newItem = document.createElement('div');
     newItem.className = 'form-group baseshot-example';
     
-    // HTML para o novo exemplo
     newItem.innerHTML = `
         <div class="baseshot-header">
             <select class="example-type-select">
@@ -464,7 +433,6 @@ addBaseshotBtn?.addEventListener('click', () => {
         <textarea class="example-output" rows="2" placeholder="Output: ..."></textarea>
     `;
     
-    // Adiciona o listener para o novo botão "remover"
     newItem.querySelector('.remove-item-btn').addEventListener('click', () => {
         newItem.remove();
     });
@@ -474,6 +442,7 @@ addBaseshotBtn?.addEventListener('click', () => {
 
 /**
  * Adiciona listeners aos botões "remover" que já existem no HTML
+ * (Este trecho é para botões pré-carregados, se houver)
  */
 document.querySelectorAll('.remove-item-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
