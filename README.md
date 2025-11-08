@@ -283,7 +283,7 @@ Este projeto está licenciado sob a Licença MIT - veja [LICENSE](LICENSE) para 
 ## 🔗 Links
 
 - **Documentação Completa**: [docs/](docs/)
-- **Zenodo DOI**: *(em breve)*
+- **Zenodo DOI**: [Zenodo](https://doi.org/10.5281/zenodo.17506950)
 - **Discussões**: [GitHub Discussions](https://github.com/[seu-usuario]/agente-canivete-cirurgico/discussions)
 - **Issues**: [GitHub Issues](https://github.com/[seu-usuario]/agente-canivete-cirurgico/issues)
 
