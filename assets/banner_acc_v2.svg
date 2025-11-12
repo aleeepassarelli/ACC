@@ -1,0 +1,55 @@
+<svg width="1400" height="400" viewBox="0 0 1400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente da lâmina -->
+    <linearGradient id="bladeGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00d9ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00b3a6" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <!-- Brilho da lâmina (efeito de corte) -->
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="white" stop-opacity="0"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Animação do brilho -->
+    <mask id="shineMask">
+      <rect width="1400" height="400" fill="url(#shine)">
+        <animateTransform attributeName="transform" type="translate" from="-400 0" to="1400 0" dur="4s" repeatCount="indefinite"/>
+      </rect>
+    </mask>
+
+    <!-- Fonte -->
+    <style>
+      .title {
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        font-weight: 700;
+        font-size: 72px;
+      }
+      .subtitle {
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        font-size: 28px;
+        font-weight: 300;
+        fill: #9ca3af;
+      }
+    </style>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="1400" height="400" rx="28" fill="#0d0d0d"/>
+
+  <!-- Lâmina com brilho -->
+  <g transform="rotate(-15 300 200)">
+    <polygon points="100,180 580,80 620,160 140,260" fill="url(#bladeGradient)" opacity="0.85" mask="url(#shineMask)"/>
+    <line x1="120" y1="190" x2="600" y2="100" stroke="white" stroke-opacity="0.3" stroke-width="1.2"/>
+  </g>
+
+  <!-- Texto -->
+  <text x="700" y="180" class="title" fill="#f3f4f6" text-anchor="middle">
+    Agente <tspan fill="#00d9ff">Canivete Cirúrgico</tspan>
+  </text>
+  <text x="700" y="250" class="subtitle" text-anchor="middle">
+    Minimalismo técnico para engenharia de prompts
+  </text>
+</svg>
