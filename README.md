@@ -73,7 +73,7 @@
 --- 
 ## 🚀 Quick Start 
 ```
-git clone [https://github.com/alepassarelli/agente-canivete-cirurgico.git](https://github.com/%5Bseu-usuario%5D/agente-canivete-cirurgico.git)  
+git clone https://github.com/alepassarelli/agente-canivete-cirurgico.git  
 cd agente-canivete-cirurgico  
 pip install -r requirements.txt
 ```
