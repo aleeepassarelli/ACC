@@ -291,7 +291,8 @@ Este projeto está licenciado sob a Licença MIT - veja [LICENSE](LICENSE) para 
 - **GitHub**: https://github.com/aleeepassarelli
 - **Email**: al.passarelli@gmail.com
 - **Twitter**: [https://x.com/alpassarelli
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg)](https://doi.org/10.5281/zenodo.17506950)
+---
+* Aledev [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg)](https://doi.org/10.5281/zenodo.17506950)
 ---
 
 **⭐ Se este framework foi útil, considere dar uma estrela no GitHub!**
