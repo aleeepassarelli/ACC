@@ -47,7 +47,7 @@
 
 ---
 <p align="center">
-  <img src="docs/assets/architecture_cycle_v3.svg" alt="ACC Ciclo Cognitivo" width="90%"/>
+  <img src="assets/architecture_cycle_v3.svg" alt="ACC Ciclo Cognitivo" width="90%"/>
 </p>
 ---
 
