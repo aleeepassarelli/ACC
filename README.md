@@ -18,9 +18,6 @@
   [🚀 Quick Start](https://github.com/aleeepassarelli/ACC/tree/main/tools) | [📖 Documentação](https://github.com/aleeepassarelli/ACC/tree/main/docs) | [🧪 Validação Científica](docs/scientific-validation.md) | [💡 Exemplos](https://github.com/aleeepassarelli/ACC/tree/main/examples) 
   
 ---
-https://github.com/aleeepassarelli
-Autor: Aledev
----
 
   ## 🎯 Por Que Este Framework? 
   ### Problema Comum
@@ -82,25 +79,25 @@ pip install -r requirements.txt
 
 
 ### Uso Básico
-
-# 1. Escolha um template
+```
+### 1. Escolha um template
 
 template = open('templates/hacker-semantico.md').read()
 
-# 2. Valide métricas
+### 2. Valide métricas
 
 !python tools/semantic-density-calculator.py "Hacker Semântico" "análise tech"
 
-# Output: SD = 0.82 ✅
+### Output: SD = 0.82 ✅
 
 !python tools/token-counter.py templates/hacker-semantico.md
 
-# Output: 187 tokens ✅
+### Output: 187 tokens ✅
 
-# 3. Use com qualquer LLM
+### 3. Use com qualquer LLM
 
 response = llm.chat(template + "\n\n" + user_query)
-
+```
 
 --- 
 ## 🧪 Ferramentas de Validação 
@@ -294,7 +291,7 @@ Este projeto está licenciado sob a Licença MIT - veja [LICENSE](LICENSE) para 
 - **GitHub**: https://github.com/aleeepassarelli
 - **Email**: al.passarelli@gmail.com
 - **Twitter**: [https://x.com/alpassarelli
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg)](https://doi.org/10.5281/zenodo.17506950)
 ---
 
 **⭐ Se este framework foi útil, considere dar uma estrela no GitHub!**
@@ -310,9 +307,9 @@ Minimalismo cirúrgico: cada palavra com propósito, cada métrica com evidênci
 
 ---
 
-  semantic_density: "{{computed}}"
-  redundancy: "{{computed}}"
-  checksum: "{{hash(content)}}"
-  mode: "cirúrgico"
-  version: "0.1"
+*  semantic_density: "{{computed}}"
+*  redundancy: "{{computed}}"
+*  checksum: "{{hash(content)}}"
+*  mode: "cirúrgico"
+*  version: "0.1"
   ---
