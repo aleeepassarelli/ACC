@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" role="img" aria-label="Ciclo Cognitivo ACC">
+  <title>Agente Canivete Cirúrgico — Ciclo Cognitivo Sequencial Suave</title>
+
+  <defs>
+    <linearGradient id="blade" x1="0" x2="1">
+      <stop offset="0%" stop-color="#00d9ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#007f92" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0a0f13"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#00d9ff" flood-opacity="0.25"/>
+    </filter>
+
+    <style><![CDATA[
+      .label { font-family: Inter, "Segoe UI", system-ui; fill: #e2e8f0; font-weight:700; font-size:14px; }
+      .desc { font-family: Inter, "Segoe UI", system-ui; fill: #9ca3af; font-size:12px; }
+      .node { font-family: Inter, "Segoe UI", system-ui; fill:#f8fafc; font-weight:700; font-size:13px; }
+      .small { font-size:11px; fill:#9ca3af; font-weight:500; }
+    ]]></style>
+  </defs>
+
+  <!-- Fundo -->
+  <rect x="20" y="20" width="960" height="340" rx="18" fill="url(#bg)" opacity="0.95"/>
+
+  <text class="label" x="60" y="60">🏗️ Arquitetura Cognitiva — Ciclo das 4 Camadas</text>
+  <text class="desc" x="60" y="78">Fluxo: Identidade → Missão → Protocolo → Baseshot → (reinício)</text>
+
+  <!-- Círculo principal -->
+  <g id="cycle" transform="translate(500,210)">
+    <g stroke="#00d9ff" stroke-width="2" stroke-opacity="0.25" fill="none">
+      <path d="M0,-110 L120,0" />
+      <path d="M120,0 L0,110" />
+      <path d="M0,110 L-120,0" />
+      <path d="M-120,0 L0,-110" />
+    </g>
+
+    <!-- IDENTIDADE -->
+    <g id="n1" opacity="0">
+      <circle cx="0" cy="-110" r="34" fill="url(#blade)" filter="url(#shadow)" />
+      <text class="node" x="0" y="-105" text-anchor="middle">IDENTIDADE</text>
+      <text class="small" x="0" y="-88" text-anchor="middle">Quem?</text>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.8;1" dur="12s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
+    </g>
+
+    <!-- MISSÃO -->
+    <g id="n2" opacity="0">
+      <rect x="86" y="-30" width="90" height="60" rx="8" ry="8" fill="url(#blade)" filter="url(#shadow)"/>
+      <text class="node" x="131" y="-2" text-anchor="middle">MISSÃO</text>
+      <text class="small" x="131" y="14" text-anchor="middle">O quê?</text>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.8;1" dur="12s" begin="3s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
+    </g>
+
+    <!-- PROTOCOLO -->
+    <g id="n3" opacity="0">
+      <ellipse cx="0" cy="110" rx="48" ry="30" fill="url(#blade)" filter="url(#shadow)" />
+      <text class="node" x="0" y="115" text-anchor="middle">PROTOCOLO</text>
+      <text class="small" x="0" y="132" text-anchor="middle">Como?</text>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.8;1" dur="12s" begin="6s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
+    </g>
+
+    <!-- BASESHOT -->
+    <g id="n4" opacity="0">
+      <rect x="-176" y="-34" width="88" height="68" rx="10" ry="10" fill="url(#blade)" filter="url(#shadow)"/>
+      <text class="node" x="-132" y="-2" text-anchor="middle">BASESHOT</text>
+      <text class="small" x="-132" y="14" text-anchor="middle">Exemplos</text>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.8;1" dur="12s" begin="9s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1"/>
+    </g>
+  </g>
+
+  <g transform="translate(60,300)">
+    <rect x="0" y="0" width="880" height="60" rx="10" fill="#071017" opacity="0.55"/>
+    <text class="small" x="16" y="20">🔹 IDENTIDADE: Papel e domínio (SD &gt; 0.8)</text>
+    <text class="small" x="16" y="36">🔹 MISSÃO: Objetivo em &lt;30 palavras</text>
+    <text class="small" x="16" y="52">🔹 PROTOCOLO: Diretrizes operacionais • 🔹 BASESHOT: 5–7 exemplos</text>
+  </g>
+</svg>
