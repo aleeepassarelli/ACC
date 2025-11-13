@@ -80,21 +80,21 @@ pip install -r requirements.txt
 
 ### Uso Básico
 ```
-### 1. Escolha um template
+ 1. Escolha um template
 
 template = open('templates/hacker-semantico.md').read()
 
-### 2. Valide métricas
+ 2. Valide métricas
 
 !python tools/semantic-density-calculator.py "Hacker Semântico" "análise tech"
 
-### Output: SD = 0.82 ✅
+ Output: SD = 0.82 ✅
 
 !python tools/token-counter.py templates/hacker-semantico.md
 
-### Output: 187 tokens ✅
+ Output: 187 tokens ✅
 
-### 3. Use com qualquer LLM
+ 3. Use com qualquer LLM
 
 response = llm.chat(template + "\n\n" + user_query)
 ```
