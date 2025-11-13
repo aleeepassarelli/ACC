@@ -72,11 +72,11 @@
 
 --- 
 ## 🚀 Quick Start 
-
+```
 git clone [https://github.com/alepassarelli/agente-canivete-cirurgico.git](https://github.com/%5Bseu-usuario%5D/agente-canivete-cirurgico.git)  
 cd agente-canivete-cirurgico  
 pip install -r requirements.txt
-
+```
 
 ### Uso Básico
 ```
@@ -102,9 +102,9 @@ response = llm.chat(template + "\n\n" + user_query)
 --- 
 ## 🧪 Ferramentas de Validação 
 ### 1. Semantic Density Calculator
-
+```
 python tools/semantic-density-calculator.py "Nome Agente" "domínio alvo"
-
+```
 
 **Output:**
 
@@ -113,14 +113,14 @@ Semantic Density (SD): 0.82
 
 
 ### 2. Token Counter
-
+```
 python tools/token-counter.py templates/seu-template.md
-
+```
 
 ### 3. Baseshot Validator
-
+```
 bash tools/baseshot-validator.sh templates/seu-template.md
-
+```
 
 ---
 
