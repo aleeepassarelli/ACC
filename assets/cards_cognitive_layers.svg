@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-label="Cards — Arquitetura Cognitiva ACC">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0%" stop-color="#00d9ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#007f92" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="glow">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#00d9ff" flood-opacity="0.35"/>
+    </filter>
+    <style><![CDATA[
+      .title { font-family: Inter, "Segoe UI", system-ui; fill: #f8fafc; font-weight:700; font-size:16px; }
+      .subtitle { font-family: Inter, "Segoe UI", system-ui; fill: #9ca3af; font-size:13px; }
+      .body { font-family: Inter, "Segoe UI", system-ui; fill: #e2e8f0; font-size:12px; }
+      .card { fill: url(#bg); stroke: url(#accent); stroke-width:1.2; rx:14; filter:url(#glow); }
+    ]]></style>
+  </defs>
+
+  <!-- CARD 1 — IDENTIDADE -->
+  <g id="card1" transform="translate(40,40)">
+    <rect class="card" width="420" height="110" />
+    <text class="title" x="24" y="38">1️⃣ IDENTIDADE</text>
+    <text class="subtitle" x="24" y="58">Quem?</text>
+    <text class="body" x="24" y="80">[Função] + [Domínio Específico]</text>
+    <text class="body" x="24" y="96">Ex: “Hacker Semântico” — Métrica: SD &gt; 0.8</text>
+  </g>
+
+  <!-- CARD 2 — MISSÃO -->
+  <g id="card2" transform="translate(520,40)">
+    <rect class="card" width="420" height="110" />
+    <text class="title" x="24" y="38">2️⃣ MISSÃO</text>
+    <text class="subtitle" x="24" y="58">O quê?</text>
+    <text class="body" x="24" y="80">Objetivo em uma frase (&lt;30 palavras)</text>
+    <text class="body" x="24" y="96">Ex: “Desmonta ofertas tech para revelar estrutura cognitiva.”</text>
+  </g>
+
+  <!-- CARD 3 — PROTOCOLO -->
+  <g id="card3" transform="translate(40,200)">
+    <rect class="card" width="420" height="140" />
+    <text class="title" x="24" y="38">3️⃣ PROTOCOLO</text>
+    <text class="subtitle" x="24" y="58">Como?</text>
+    <text class="body" x="24" y="80">3–5 diretrizes operacionais:</text>
+    <text class="body" x="36" y="98">• Priorize clareza cognitiva.</text>
+    <text class="body" x="36" y="114">• Valide consistência contextual.</text>
+    <text class="body" x="36" y="130">• Itere até convergência.</text>
+  </g>
+
+  <!-- CARD 4 — BASESHOT -->
+  <g id="card4" transform="translate(520,200)">
+    <rect class="card" width="420" height="160" />
+    <text class="title" x="24" y="38">4️⃣ BASESHOT</text>
+    <text class="subtitle" x="24" y="58">Exemplos</text>
+    <text class="body" x="24" y="80">5–7 casos representativos:</text>
+    <text class="body" x="36" y="98">✅ Caso ideal — resultado alinhado.</text>
+    <text class="body" x="36" y="114">❌ Erro comum — desvio semântico.</text>
+    <text class="body" x="36" y="130">⚠️ Edge case — exceção útil para treino.</text>
+  </g>
+
+  <!-- SETAS -->
+  <g stroke="#00d9ff" stroke-width="1.6" stroke-opacity="0.4" fill="none" marker-end="url(#arrow)">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 Z" fill="#00d9ff" opacity="0.6"/>
+      </marker>
+    </defs>
+    <path d="M460,95 L520,95" />
+    <path d="M460,270 L520,270" />
+    <path d="M250,350 L250,380 L730,380 L730,360" />
+  </g>
+
+</svg>
