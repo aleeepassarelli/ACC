@@ -15,8 +15,15 @@
   Framework cientificamente validado para criação de agentes LLM ultra-eficientes usando **Semantic Density**, **Baseshot Learning** e **Latent Feature Steering**. 
  
   ---
-  [🚀 Quick Start](https://github.com/aleeepassarelli/ACC/tree/main/tools) | [📖 Documentação](https://github.com/aleeepassarelli/ACC/tree/main/docs) | [🧪 Validação Científica](docs/scientific-validation.md) | [💡 Exemplos](https://github.com/aleeepassarelli/ACC/tree/main/examples) 
-  
+<div align="center">
+
+[![Quick Start](https://img.shields.io/badge/🚀_Quick_Start-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aleeepassarelli/ACC/tree/main/tools)
+[![Documentação](https://img.shields.io/badge/📖_Documentação-0047AB?style=for-the-badge)](https://github.com/aleeepassarelli/ACC/tree/main/docs)
+[![Validação Científica](https://img.shields.io/badge/🧪_Validação_Científica-00796B?style=for-the-badge)](docs/scientific-validation.md)
+[![Exemplos](https://img.shields.io/badge/💡_Exemplos-FFD700?style=for-the-badge&logo=python&logoColor=black)](https://github.com/aleeepassarelli/ACC/tree/main/examples)
+
+</div>
+
 ---
 
   ## 🎯 Por Que Este Framework? 
