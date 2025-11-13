@@ -243,9 +243,6 @@ Contribuições são bem-vindas! Por favor:
 - [ ] Testado em 2+ modelos LLM
 - [ ] Documentação atualizada
 
-
----
-
 ---
 
 ## 👥 Créditos
