@@ -49,7 +49,7 @@
 <p align="center">
   <img src="assets/architecture_cycle_v3.svg" alt="ACC Ciclo Cognitivo" width="90%"/>
 </p>
----
+
 <p align="center">
   <img src="assets/cards_cognitive_layers.svg" alt="Arquitetura Cognitiva — 4 Camadas" width="95%">
 </p>
