@@ -246,40 +246,75 @@ Contribuições são bem-vindas! Por favor:
 
 ---
 
+---
+
 ## 👥 Créditos
 
-
-**🧑‍💻 Desenvolvedor Principal**  
-[Aledev] - Conceptualização e arquitetura original
-
+<table>
+<tr>
+<td align="center" width="160">
+  <img src="https://img.shields.io/badge/Aledev-%2300d9ff.svg?&style=for-the-badge&logoColor=white" alt="Aledev Badge"/><br>
+  <sub><b>🧑‍💻 Desenvolvedor Principal</b></sub><br>
+  <sub>Conceptualização & Arquitetura Original</sub><br><br>
+  <a href="https://github.com/aleeepassarelli">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white"/>
+  </a>
+  <a href="mailto:al.passarelli@gmail.com">
+    <img src="https://img.shields.io/badge/Email-00d9ff?style=flat-square&logo=gmail&logoColor=white"/>
+  </a>
+  <a href="https://x.com/alpassarelli">
+    <img src="https://img.shields.io/badge/X%20(Twitter)-111111?style=flat-square&logo=x&logoColor=white"/>
+  </a>
+</td>
+<td>
+  <p align="left">
+  <strong>Agente Canivete Cirúrgico</strong> é resultado de uma arquitetura cognitiva desenvolvida para
+  integrar pensamento analítico e estético em um único modelo funcional.
+  <br><br>
+  <i>“Toda precisão técnica deve ter uma estética equivalente.”</i>
+  </p>
+</td>
+</tr>
+</table>
 
 ---
 
-## 📄 Licença
+## 📜 Licença
 
-Este projeto está licenciado sob a Licença MIT - veja [LICENSE](LICENSE) para detalhes.
+🪪 Este projeto é licenciado sob a **Licença MIT** — veja o arquivo [LICENSE](LICENSE) para detalhes.  
+<sub>© 2025 Aledev — Todos os direitos reservados nos componentes criativos.</sub>
 
----
-
-## 🔗 Links
-
-- **Documentação Completa**: [docs/](docs/)
-- **Zenodo DOI**: [Zenodo](https://doi.org/10.5281/zenodo.17506950)
-- **Discussões**: [GitHub Discussions](https://github.com/[seu-usuario]/agente-canivete-cirurgico/discussions)
-- **Issues**: [GitHub Issues](https://github.com/[seu-usuario]/agente-canivete-cirurgico/issues)
+<p align="center">
+  <img src="https://img.shields.io/github/license/aleeepassarelli/agente-canivete-cirurgico?style=flat-square&color=00d9ff">
+  <img src="https://img.shields.io/github/last-commit/aleeepassarelli/agente-canivete-cirurgico?style=flat-square&color=00d9ff">
+  <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg" alt="DOI Badge">
+</p>
 
 ---
 
-## 📞 Contato
+## 🔗 Recursos & Navegação
 
-- **GitHub**: https://github.com/aleeepassarelli
-- **Email**: al.passarelli@gmail.com
-- **Twitter**: [https://x.com/alpassarelli
----
-* Aledev [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg)](https://doi.org/10.5281/zenodo.17506950)
+| 🔗 Área | 📁 Caminho / Link |
+|:-------:|:-----------------|
+| 📘 **Documentação Completa** | [`/docs`](docs/) |
+| 🧠 **Validação Científica** | [`docs/scientific-validation.md`](docs/scientific-validation.md) |
+| 💡 **Exemplos Cognitivos** | [`/examples`](examples/) |
+| 🧩 **Discussões** | [GitHub Discussions](https://github.com/aleeepassarelli/agente-canivete-cirurgico/discussions) |
+| 🐞 **Issues** | [GitHub Issues](https://github.com/aleeepassarelli/agente-canivete-cirurgico/issues) |
+| 🧬 **DOI (Zenodo)** | [10.5281/zenodo.17506950](https://doi.org/10.5281/zenodo.17506950) |
+
 ---
 
-**⭐ Se este framework foi útil, considere dar uma estrela no GitHub!**
+<p align="center">
+  <sub>
+  Desenvolvido com 🧠 + 🜂 por <b>Aledev</b> • 
+  <a href="https://github.com/aleeepassarelli">GitHub</a> • 
+  <a href="mailto:al.passarelli@gmail.com">Email</a> • 
+  <a href="https://x.com/alpassarelli">Twitter</a>
+  </sub>
+</p>
+
+# **⭐ Se este framework foi útil, considere dar uma estrela no GitHub!**
 
 
 
