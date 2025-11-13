@@ -1,0 +1,54 @@
+<svg width="480" height="120" viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5cf2b1" />
+      <stop offset="100%" stop-color="#3ab4ff" />
+    </linearGradient>
+    <style>
+      @keyframes glow {
+        0%, 100% { filter: drop-shadow(0 0 4px #5cf2b1aa); opacity: 0.9; }
+        50% { filter: drop-shadow(0 0 12px #3ab4ffcc); opacity: 1; }
+      }
+      text {
+        font-family: 'JetBrains Mono', monospace;
+        fill: url(#grad);
+        letter-spacing: 1px;
+      }
+      .seal { animation: glow 3s infinite; }
+      .circle {
+        fill: none;
+        stroke: url(#grad);
+        stroke-width: 2;
+        stroke-dasharray: 6 6;
+        animation: rotate 10s linear infinite;
+        transform-origin: center;
+        opacity: 0.6;
+      }
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .symbol {
+        fill: url(#grad);
+        font-size: 32px;
+        animation: glow 4s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Anel externo -->
+  <circle cx="240" cy="60" r="48" class="circle"/>
+
+  <!-- Símbolo central -->
+  <text x="225" y="70" class="symbol">🜂</text>
+
+  <!-- Texto superior -->
+  <text x="50%" y="30" text-anchor="middle" class="seal" style="font-size:14px;">
+    ALEDEV RESEARCH
+  </text>
+
+  <!-- Texto inferior -->
+  <text x="50%" y="105" text-anchor="middle" style="font-size:12px; fill:#9ae4ff;">
+    AGENTE CANIVETE CIRÚRGICO · ACC FRAMEWORK
+  </text>
+</svg>
