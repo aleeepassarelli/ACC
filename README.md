@@ -324,12 +324,6 @@ Minimalismo cirúrgico: cada palavra com propósito, cada métrica com evidênci
 
 ---
 
-*  semantic_density: "{{computed}}"
-*  redundancy: "{{computed}}"
-*  checksum: "{{hash(content)}}"
-*  mode: "cirúrgico"
-*  version: "0.1"
-  ---
   <p align="center">
   <img src="assets/footer_seal.svg" width="340" alt="Aledev Research Seal">
 </p>
