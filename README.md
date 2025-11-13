@@ -46,8 +46,10 @@
 **20-35% melhor** performance que verbose prompts (Jiang et al. 2023) - **87% score consolidado** (validação multi-agente) - **>0.7 Cohen's Kappa** em testes de replicabilidade 
 
 ---
-
-## 🏗️ Arquitetura de 4 Camadas
+<p align="center">
+  <img src="docs/assets/architecture_cycle.svg" alt="ACC Ciclo Cognitivo" width="90%"/>
+</p>
+---
 
 ┌─────────────────────────────────────────┐  
 │ 1. IDENTIDADE (Quem?) │  
