@@ -9,7 +9,8 @@
 </div>
 
 ---
-[![Tests](https://github.com/aleeepassarelli/ACC/actions/workflows/tests.yml/badge.svg)](...)
+
+[![Scientific Validation](https://img.shields.io/badge/Scientific%20Validation-Passing-brightgreen?style=for-the-badge&logo=googlescholar)](LINK_PARA_SEU_NOTEBOOK_COLAB)
 
 ---
 
