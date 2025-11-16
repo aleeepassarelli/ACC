@@ -5,17 +5,11 @@
  ---
  <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) [![Validation Score](https://img.shields.io/badge/validation-87%25-brightgreen.svg)](docs/scientific-validation.md) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg)](https://zenodo.org/records/17560950)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub stars](https://img.shields.io/github/stars/aleeepassarelli/ACC?style=social)](...) [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) [![Validation Score](https://img.shields.io/badge/validation-87%25-brightgreen.svg)](docs/scientific-validation.md) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg)](https://zenodo.org/records/17560950)
 </div>
 
 ---
 [![Tests](https://github.com/aleeepassarelli/ACC/actions/workflows/tests.yml/badge.svg)](...)
-
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
-[![GitHub stars](https://img.shields.io/github/stars/aleeepassarelli/ACC?style=social)](...)
-
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](...)
 
 ---
 
