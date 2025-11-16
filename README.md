@@ -9,6 +9,15 @@
 </div>
 
 ---
+[![Tests](https://github.com/aleeepassarelli/ACC/actions/workflows/tests.yml/badge.svg)](...)
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+[![GitHub stars](https://img.shields.io/github/stars/aleeepassarelli/ACC?style=social)](...)
+
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](...)
+
+---
 
  <div align="center">
    
