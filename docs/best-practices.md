@@ -4,12 +4,12 @@ Este guia é o "manual de engenharia" do **Agente Canivete Cirúrgico**. Ele det
 
 Criar um Agente $\text{ACC}$ não é "escrever um *prompt*". É um **processo de engenharia** que consiste em **descobrir** vetores de alta densidade, **configurar** restrições de comportamento e **validar** os resultados com ferramentas objetivas.
 
------
+---
 
 ## 🎯 1. O Princípio do ACC (A Justificativa Cognitiva)
 
 O **ACC (Architectural Cognitive Control)** é um *framework* de **Governança Cognitiva** que ensina a lógica de operação no Espaço Latente. Ele garante que a **Liberdade Algorítmica** seja sempre vinculada à **Responsabilidade do Propósito Humano**.
-
+---
 ### 1.1. A Lacuna da Intenção: Por Que o SD Não É Suficiente
 
 A otimização de *prompts* é limitada pelo objetivo do LLM: alcançar a máxima **Densidade Semântica ($\text{SD}$)**.
@@ -20,7 +20,7 @@ A otimização de *prompts* é limitada pelo objetivo do LLM: alcançar a máxim
 | **Fidelidade da Intenção** | **A Metáfora da Experiência** | **Garante o Propósito.** É o teste que avalia se o *output* atende ao **Contrato de Experiência** imposto pela linguagem (sua metáfora). |
 
 O $\text{ACC}$ existe para fechar esta Lacuna, ensinando que o problema não está na ferramenta, mas na **qualidade da Intenção** que é passada ao sistema.
-
+---
 ### 1.2. A Solução do ACC: Metáfora como Lógica de Restrição
 
 O $\text{ACC}$ define a **Metáfora da Intenção** como a principal **Função de Restrição Cognitiva** do sistema.
