@@ -1,0 +1,29 @@
+# Use a versão 1.2.0 do Citation File Format
+cff-version: 1.2.0
+
+# 1. Título e Versão 
+title: "Engenharia Latente-Semântica Aplicada"
+message: "Se você usar este software, por favor, cite-o usando o metadado abaixo."
+version: "1.0.0" # Deve coincidir com a tag da sua primeira Release no GitHub
+date-released: 2025-11-16
+
+# 2. Autores 
+authors:
+  - family-names: "Miranda"
+    given-names: "Alexandre Passarelli"
+    orcid: "https://orcid.org/0009-0004-2060-1150"
+
+# 3. Tipo e Repositório
+type: software
+repository-code: "https://github.com/aleeepassarelli/ACC"
+
+# 4. Palavras-chave 
+keywords:
+  - "engenharia de prompt"
+  - "espaço latente"
+  - "LLM"
+  - "matemática vetorial"
+  - "ACC"
+  - "densidade semânntiica"
+  - "agennte cavinete cirurgico"
+  - "SD 0.9"
