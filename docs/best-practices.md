@@ -39,18 +39,27 @@ Siga estas etapas em ordem. Cada etapa depende da anterior.
 Este é o passo mais crítico. Você não "escolhe" um nome; você **descobre** um nome que tenha uma "Física" ($\text{SD} > 0.8$) válida.
 
 1.  **Brainstorm (Exploração):** Comece com um **Nome Base** (conceito, ex: "Revisor") e um **Domínio** (tarefa, ex: "Analisa Pull Requests em busca de bugs lógicos e de segurança").
+
+---
+
 2.  **Gerar (Candidatos):** Use o "Explorador" para gerar uma lista de nomes candidatos.
     ```python
     python tools/strategy_generator.py "Revisor" "Analisa Pull Requests em busca de bugs lógicos e de segurança"
     ```
     `# Saída (Exemplo): 1. "Revisor de segurança" 2. "Revisor lógico" 3. "CodeReviewer Lógico"`
+
+    ---
+    
 3.  **Validar (O Árbitro):** Teste seus melhores candidatos no "Árbitro" para encontrar um que passe no *benchmark*.
     ```python
     python tools/semantic-density-calculator.py "CodeReviewer Lógico" "Analisa PRs bugs lógicos e segurança" --benchmark
     ```
-4.  **Selecionar (O Veredito):** Escolha o candidato que passe nas duas métricas:
+    ---
+    
+5.  **Selecionar (O Veredito):** Escolha o candidato que passe nas duas métricas:
       * ✅ (Densidade) APROVADO CROSS-PLATFORM ($\text{SD} > 0.7+$)
       * ✅ (Minimalismo) APROVADO (Palavras $\le 3$)
+---
 
 ### Passo 2: Defina o Protocolo (O "Como?")
 
@@ -59,6 +68,7 @@ Com a Identidade validada, defina as **Restrições de Comportamento**. Um bom p
   * **BOM (Cirúrgico):** "1. Priorize a detecção de 'SQL Injection' (SQLi)."
   * **BOM (Cirúrgico):** "2. Responda APENAS com o bloco de código formatado."
   * **Regra Crucial:** Uma de suas regras deve **sempre** definir o formato de saída (ex: JSON, Markdown, código puro).
+---
 
 ### Passo 3: Calibre o Baseshot (O "Treinamento")
 
@@ -67,6 +77,7 @@ Calibre a saída do Agente ensinando a ele o que **"certo," "errado" e "ambíguo
   * **✅ O Caso Ideal (Vetor de Atração):** O "*happy path*". Mostre o *input* perfeito levando ao *output* perfeito.
   * **❌ O Erro Comum (Vetor de Repulsão):** **Pense:** Qual é a forma mais provável que um LLM genérico falharia nesta tarefa? (Ex: Ser vago, alucinar, focar no marketing). Mostre esse erro e marque-o como **(ERRADO: ...)**. Isso ensina o Agente a se afastar ativamente desse tipo de resposta.
   * **⚠️ O Edge Case (Vetor de Ambiguidade):** Ensine a nuance. O que fazer com *input: None*? O que fazer se o *input* for logicamente errado, mas estilisticamente perfeito?
+---
 
 ### Passo 4: Validação Final (O "Checklist")
 
@@ -76,6 +87,7 @@ Rode as validações finais. O Agente só pode ser considerado ACC se passar em 
 | :--- | :--- | :--- |
 | **Minimalismo (Token)** | `python tools/token-counter.py templates/seu-novo-agente.md` | `RESULTADO: Deve ser <= 200 tokens.` |
 | **Estrutura (Baseshot)** | `bash tools/baseshot-validator.sh templates/seu-novo-agente.md` | `RESULTADO: Deve passar em todos os checks (5-7 casos, com ✅ e ❌).` |
+---
 
 ### Passo 5: Teste de Campo (O "Simulador")
 
@@ -85,5 +97,6 @@ Prove que seu Agente funciona na prática e que é portátil.
     ```python
     python tools/cli-test.py -t templates/seu-novo-agente.md -q "Um input de teste realista"
     ```
+---
 
 **Objetivo Educacional:** O $\text{ACC}$ ensina a transcender a otimização de *tokens* e a criar sistemas de IA que são **fidelizados ao propósito humano**, garantindo uma experiência de alto valor e rigor, independente da ferramenta que ele use.
