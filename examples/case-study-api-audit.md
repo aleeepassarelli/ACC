@@ -147,7 +147,7 @@ Metodologia: Análise forense de documentação técnica, cross-referência com 
     * **⚠️ CRITICAL:** Quota compartilhada entre TODOS os modelos
     * **Uso Comercial:** Depende do modelo individual
     * **Caso de Uso:** Comparação de modelos, fallback systems
-
+```
 🔹 **TIER A - Bons Limites, Algumas Restrições**
 5.  **Hugging Face Inference API**
     * **Link:** `https://huggingface.co/inference-api`
@@ -240,7 +240,7 @@ Metodologia: Análise forense de documentação técnica, cross-referência com 
     * **⚠️ SETUP REQUIRED:** Não é API REST, requer implementação
     * **Uso Comercial:** Sim (licença MIT)
     * **Caso de Uso:** NER customizado, análise sintática avançada
-
+```
 ### 📊 CATEGORIA 4: TRADUÇÃO
 18. **LibreTranslate**
     * **Link:** `https://libretranslate.com/`
