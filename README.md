@@ -298,7 +298,7 @@ Contribuições são bem-vindas! Por favor:
 ---
 ### Autor
 
-[![ORCID](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0004-2060-1150) [Alexandre Passarelli Miranda](https://orcid.org/0009-0004-2060-1150)
+[![ORCID](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0009-0004-2060-1150) [Aledev](https://orcid.org/0009-0004-2060-1150)
 ---
 
 ## 🔗 Recursos & Navegação
