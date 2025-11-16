@@ -8,7 +8,7 @@ Criar um Agente $\text{ACC}$ não é "escrever um *prompt*". É um **processo de
 
 ## 🎯 1. O Princípio do ACC (A Justificativa Cognitiva)
 
-O **ACC (Architectural Cognitive Control)** é um *framework* de **Governança Cognitiva** que ensina a lógica de operação no Espaço Latente. Ele garante que a **Liberdade Algorítmica** seja sempre vinculada à **Responsabilidade do Propósito Humano**.
+###O **ACC (Architectural Cognitive Control)** é um *framework* de **Governança Cognitiva** que ensina a lógica de operação no Espaço Latente. Ele garante que a **Liberdade Algorítmica** seja sempre vinculada à **Responsabilidade do Propósito Humano**.
 ---
 ### 1.1. A Lacuna da Intenção: Por Que o SD Não É Suficiente
 
