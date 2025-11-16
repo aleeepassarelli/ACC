@@ -99,6 +99,50 @@ Agora que seu arquivo `.md` está completo, rode as validações finais do `CONT
 
 Seu Agente está "validado" em teoria. Agora, prove que ele funciona na prática.
 
+---
+
+🟡 IMPORTANTE
+
+## 🎯 **ACC: A Arquitetura de Controle Cognitivo (O Protocolo Educacional)**
+
+O $\text{ACC}$ é um *framework* de **Governança Cognitiva** cujo foco é ensinar a lógica de operação no **Espaço Latente**. Ele garante que a **Liberdade Algorítmica** seja sempre vinculada à **Responsabilidade do Propósito Humano**.
+
+### **3. A Lacuna da Intenção: Por Que o SD Não É Suficiente**
+
+A otimização de *prompts* é fundamentalmente limitada pelo objetivo do modelo de linguagem (LLM): alcançar a máxima **Densidade Semântica ($\text{SD}$)**.
+
+| Métrica | Âncora Cognitiva | Limitação e Risco |
+| :--- | :--- | :--- |
+| **Densidade Semântica ($\text{SD}$)** | O **Espaço Latente** | **Garante Coerência, mas não Fidelidade.** O LLM pode produzir um *output* linguisticamente perfeito e coerente ($\text{SD}$ alto), mas que falha em entregar a **experiência exata, o tom ou o rigor** que o arquiteto pretendia. O agente *executa* a tarefa, mas ignora a **nuance do propósito** (Ex: é genérico onde deveria ser "Cirúrgico"). |
+| **Fidelidade da Intenção** | A **Metáfora da Experiência** | **Garante o Propósito.** É o teste que avalia se o *output* do sistema atende ao **Contrato de Experiência** imposto pela linguagem (sua metáfora). |
+
+O $\text{ACC}$ existe para fechar esta Lacuna. Ele ensina que o *problema* não está na ferramenta, mas na **qualidade da Intenção** que é passada ao sistema.
+
+---
+
+### **4. A Solução do ACC: Metáfora como Lógica de Restrição**
+
+O $\text{ACC}$ define a **Metáfora da Intenção** como a principal **Função de Restrição Cognitiva** do sistema.
+
+#### **A. A Metáfora como Função de Restrição**
+
+A escolha do nome de um agente (Ex: "Agente Canivete Cirúrgico") não é estética; é uma instrução de engenharia que impõe restrições de **comportamento** no espaço latente:
+
+* **Restrição de Modularidade:** O termo "Canivete" exige que a solução seja **compacta e adaptável**, ensinando o agente a decompor e delegar a funcionalidade (lógica $\text{MOE}$).
+* **Restrição de Rigor:** O termo "Cirúrgico" exige **precisão absoluta e minimização de *ruído*** (o oposto de alucinação), forçando o agente a ancorar sua proveniência e foco.
+
+#### **B. O Protocolo de Validação de Experiência (O Núcleo do ACC)**
+
+O **ACC** instrui o arquiteto a monitorar continuamente a **Fidelidade da Intenção** através dos seus módulos:
+
+1.  **Arquétipo A (Consciência do Risco):** Garante que a Intenção (Metáfora) seja registrada e auditada contra o resultado, tornando o processo transparente e rastreável.
+2.  **Graphiti (Memória Viva):** Impõe o rigor da Intenção no manejo dos dados. Ao invés de um dado ser um valor estático ("Tempo Real"), ele é um **"Banco de Dados Vivo"** que exige manutenção, rastreabilidade e um entendimento de estado temporal.
+3.  **$\text{R.E.F.}$ (Reverse Engineering Framework):** Ensinamos a decompor tarefas complexas em passos lógicos, garantindo que cada passo **mantenha a precisão** exigida pela Metáfora.
+
+**Objetivo Educacional:** O **ACC** ensina o aluno a transcender a otimização de *tokens* e a criar sistemas de IA que são **fidelizados ao propósito humano**, garantindo uma experiência de alto valor e rigor, independente da ferramenta que ele use.
+
+---
+
 Use o "Simulador" para testar o Agente contra um LLM real. Recomendamos testar em pelo menos **dois** LLMs diferentes (ex: Gemini 1.5 Flash e Claude 3.5 Sonnet) para provar a portabilidade.
 
 ```bash
