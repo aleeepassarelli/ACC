@@ -5,7 +5,7 @@
  ---
  <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) [![Validation Score](https://img.shields.io/badge/validation-87%25-brightgreen.svg)](docs/scientific-validation.md) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg)](https://doi.org/10.5281/zenodo.17506950)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/) [![Validation Score](https://img.shields.io/badge/validation-87%25-brightgreen.svg)](docs/scientific-validation.md) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg)](https://zenodo.org/records/17560950)
 </div>
 
 ---
@@ -306,7 +306,7 @@ Contribuições são bem-vindas! Por favor:
 | 💡 **Exemplos Cognitivos** | [`/examples`](examples/) |
 | 🧩 **Discussões** | [GitHub Discussions](https://github.com/aleeepassarelli/agente-canivete-cirurgico/discussions) |
 | 🐞 **Issues** | [GitHub Issues](https://github.com/aleeepassarelli/agente-canivete-cirurgico/issues) |
-| 🧬 **DOI (Zenodo)** | [10.5281/zenodo.17506950](https://doi.org/10.5281/zenodo.17506950) |
+| 🧬 **DOI (Zenodo)** | [10.5281/zenodo.17506950](https://zenodo.org/records/17560950) |
 
 ---
 
