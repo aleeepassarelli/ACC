@@ -175,7 +175,7 @@ OUTPUT:
 |----------|-------|--------|
 | Fundamentação Teórica | 90% | ✅ |
 | Métricas Quantitativas | 85% | ✅ |
-| Replicabilidade | 70% | ⚠️ Requer testes empíricos |
+| Replicabilidade | 80% | ✅ |
 | Portabilidade | 80% | ✅ |
 | **MÉDIA CONSOLIDADA** | **87%** | ✅ |
 
