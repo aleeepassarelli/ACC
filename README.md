@@ -10,7 +10,7 @@
 
 ---
 
-[![Scientific Validation](https://img.shields.io/badge/Scientific%20Validation-Passing-brightgreen?style=for-the-badge&logo=googlescholar)](LINK_PARA_SEU_NOTEBOOK_COLAB)
+[![Scientific Validation](https://img.shields.io/badge/Scientific%20Validation-Passing-brightgreen?style=for-the-badge&logo=googlescholar)](https://colab.research.google.com/drive/1mdC_9FAnDZBUhKQL78yk3ypZixDMPDaC#scrollTo=86559a99)
 
 ---
 
