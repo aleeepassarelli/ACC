@@ -177,7 +177,7 @@ OUTPUT:
 | Métricas Quantitativas | 85% | ✅ |
 | Replicabilidade | 80% | ✅ |
 | Portabilidade | 80% | ✅ |
-| **MÉDIA CONSOLIDADA** | **87%** | ✅ |
+| **MÉDIA CONSOLIDADA** | **89%** | ✅ |
 
 ---
 # Rastreabilidade para o ACC
