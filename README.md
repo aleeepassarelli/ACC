@@ -293,12 +293,6 @@ Contribuições são bem-vindas! Por favor:
 🪪 Este projeto é licenciado sob a **Licença MIT** — veja o arquivo [LICENSE](LICENSE) para detalhes.  
 <sub>© 2025 Aledev — Todos os direitos reservados nos componentes criativos.</sub>
 
-<p align="center">
-  <img src="https://img.shields.io/github/license/aleeepassarelli/agente-canivete-cirurgico?style=flat-square&color=00d9ff">
-  <img src="https://img.shields.io/github/last-commit/aleeepassarelli/agente-canivete-cirurgico?style=flat-square&color=00d9ff">
-  <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17506950.svg" alt="DOI Badge">
-</p>
-
 ---
 ### Autor
 
