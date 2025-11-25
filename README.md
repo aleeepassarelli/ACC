@@ -12,7 +12,19 @@
 
 [![Scientific Validation](https://img.shields.io/badge/Scientific%20Validation-Passing-brightgreen?style=for-the-badge&logo=googlescholar)](https://colab.research.google.com/drive/1mdC_9FAnDZBUhKQL78yk3ypZixDMPDaC#scrollTo=86559a99)
 
+
 ---
+
+## Status da Validação de Contrato
+
+![Contract Adherence Status](https://img.shields.io/badge/Adherence_Status-PASS-brightgreen?style=for-the-badge&logo=appveyor)
+
+**Agente SLE (Otimizado):**
+*   **Status:** {{audit_sle['status_ccc']}}
+*   **Score Médio de Aderência:** {{audit_sle['adherence_mean']:.4f}}
+
+---
+
 
  <div align="center">
    
