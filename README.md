@@ -121,10 +121,12 @@ Semantic Density (SD): 0.82
 ```
 python tools/validation_core.py templates/seu-template.md
 ```
+
 **Output:**
 
 Agent Behovior (ABC): 0.55 
 ✅ APROVADO - SD acima do threshold (>0.5)
+
 
 ### 3. Baseshot Validator
 ```
