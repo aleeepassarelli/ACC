@@ -113,7 +113,7 @@ python tools/ACC_Validation.py "Nome Agente" "domínio alvo"
 
 **Output:**
 
-Semantic Density (SD): 0.82  
+Semantic Density (SD): 0.80 
 ---
 ✅ APROVADO - SD acima do threshold (>0.6)
 
