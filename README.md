@@ -60,7 +60,7 @@
 ✅ <200 tokens com alta densidade semântica  
 ✅ Portável (GPT-4, Claude, Gemini, Llama)  
 ✅ 6 papers peer-reviewed como base  
-✅ Métricas quantitativas (SD, κ, token count)
+✅ Métricas quantitativas (SD, Behavior)
 
 ### Resultados Validados - 
 
@@ -87,17 +87,17 @@ pip install -r requirements.txt
 ```
  1. Escolha um template
 
-template = open('templates/hacker-semantico.md').read()
+template = open('templates/exploador-api.md').read()
 
  2. Valide métricas
 
-!python tools/semantic-density-calculator.py "Hacker Semântico" "análise tech"
+!python tools/ACC_Validation.py "Explorador de API" "Explorar API"
 
- Output: SD = 0.82 ✅
+ Output: SD = 1.00 ✅
 
-!python tools/token-counter.py templates/hacker-semantico.md
+!python tools/validation_core.py templates/exploador-api.md
 
- Output: 187 tokens ✅
+ Output: Behovior = 0.55 ✅
 
  3. Use com qualquer LLM
 
@@ -108,7 +108,7 @@ response = llm.chat(template + "\n\n" + user_query)
 ## 🧪 Ferramentas de Validação 
 ### 1. Semantic Density Calculator
 ```
-python tools/semantic-density-calculator.py "Nome Agente" "domínio alvo"
+python tools/ACC_Validation.py "Nome Agente" "domínio alvo"
 ```
 
 **Output:**
@@ -117,10 +117,14 @@ Semantic Density (SD): 0.82
 ✅ APROVADO - SD acima do threshold (>0.6)
 
 
-### 2. Token Counter
+### 2. Agennt Behovior
 ```
-python tools/token-counter.py templates/seu-template.md
+python tools/validation_core.py templates/seu-template.md
 ```
+**Output:**
+
+Agent Behovior (ABC): 0.55 
+✅ APROVADO - SD acima do threshold (>0.5)
 
 ### 3. Baseshot Validator
 ```
